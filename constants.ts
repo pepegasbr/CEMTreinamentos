@@ -20,7 +20,6 @@ export const MAX_OA_CHARS = 1200;
 export const LS_KEYS = {
     NICK: 'cem_nick',
     APLICADOR: 'cem_aplicador',
-    DRAFT: 'cem_draft',
     ADMIN_FILTER: 'cem_admin_filter',
     ADMIN_SORT: 'cem_admin_sort',
 };

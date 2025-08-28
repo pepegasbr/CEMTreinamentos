@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Button from './ui/Button';
 import { User, Screen } from '../types';
@@ -20,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ user, quizType, onGoHome, screen }) => 
   const isHomeScreen = screen === 'trainingSelection';
 
   return (
-    <header className="sticky top-4 z-40 w-full px-4">
+    <header className="w-full px-4 mt-4">
       <div className="max-w-4xl mx-auto">
         <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl px-4 py-2 flex items-center justify-between shadow-lg">
           <div className="flex items-center gap-3">

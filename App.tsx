@@ -16,6 +16,7 @@ import OpenAnswerQuizScreen from './components/screens/OpenAnswerQuizScreen';
 import VfResultsScreen from './components/screens/VfResultsScreen';
 import OpenAnswerResultsScreen from './components/screens/OpenAnswerResultsScreen';
 import AdminScreen from './components/screens/AdminScreen';
+import SubmittingScreen from './components/screens/SubmittingScreen';
 
 // Import UI
 import Header from './components/Header';
@@ -153,7 +154,7 @@ const App: React.FC = () => {
         const newAnswers = [...quizState.answers, answer];
         if (quizState.currentQuestionIndex + 1 >= quizState.questions.length) {
             setQuizState({ ...quizState, answers: newAnswers });
-            setScreen('vfResults');
+            setScreen('submitting');
         } else {
             setQuizState({
                 ...quizState,
@@ -177,7 +178,7 @@ const App: React.FC = () => {
         const newAnswers = [...quizState.answers, answer];
         if (quizState.currentQuestionIndex + 1 >= quizState.questions.length) {
             setQuizState({ ...quizState, answers: newAnswers });
-            setScreen('openAnswerResults');
+            setScreen('submitting');
         } else {
             setQuizState({
                 ...quizState,
@@ -192,7 +193,9 @@ const App: React.FC = () => {
         const processAndSendResults = async () => {
             if (!user || !quizState || !quizState.questions) return;
 
-            if (screen === 'vfResults') {
+            const isVfQuiz = quizState.type === 'Verdadeiro ou Falso';
+
+            if (isVfQuiz) {
                 const vfAnswers: VFAnswer[] = quizState.questions.map((q, i) => {
                     const question = q as VFQuestion;
                     const userAnswer = quizState.answers[i] as 'Verdadeiro' | 'Falso';
@@ -211,7 +214,8 @@ const App: React.FC = () => {
                 } catch(e) {
                     showAlert('Erro ao enviar respostas. Verifique sua conexão.');
                 }
-            } else if (screen === 'openAnswerResults') {
+                setScreen('vfResults');
+            } else {
                 const oaAnswers: OpenAnswer[] = quizState.questions.map((q, i) => {
                     const question = q as OpenAnswerQuestion;
                     return {
@@ -226,10 +230,11 @@ const App: React.FC = () => {
                 } catch(e) {
                     showAlert('Erro ao enviar respostas. Verifique sua conexão.');
                 }
+                setScreen('openAnswerResults');
             }
         };
 
-        if (screen === 'vfResults' || screen === 'openAnswerResults') {
+        if (screen === 'submitting') {
             processAndSendResults();
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -242,6 +247,7 @@ const App: React.FC = () => {
             case 'start': return <StartScreen onNext={handleStart} />;
             case 'aplicador': return <AplicadorScreen onStart={handleAplicador} />;
             case 'admin': return <AdminScreen onExit={() => window.location.reload()} />;
+            case 'submitting': return <SubmittingScreen />;
             case 'trainingSelection': return user && <TrainingSelectionScreen user={user} onSelect={handleTrainingSelect} />;
             case 'tdpSelection': return <TdpSelectionScreen tdpQuestionsByEval={allQuestions.tdp!} onSelect={(q, type) => startQuiz(q, type, true)} />;
             case 'avdocResSelection': return <AvdocResSelectionScreen avdocResQuestions={allQuestions.avdocRes!} onSelect={(q, type) => startQuiz(q, type, true)} />;
@@ -254,7 +260,7 @@ const App: React.FC = () => {
             case 'openAnswerQuiz':
                 if (quizState) {
                     const q = quizState.questions[quizState.currentQuestionIndex] as OpenAnswerQuestion;
-                    return <OpenAnswerQuizScreen key={quizState.currentQuestionIndex} question={q} current={quizState.currentQuestionIndex} total={quizState.questions.length} showQuestionNumber={quizState.showQuestionNumber} quizType={quizState.type} onSubmit={handleOpenAnswerSubmit} addToast={addToast}/>;
+                    return <OpenAnswerQuizScreen key={quizState.currentQuestionIndex} question={q} current={quizState.currentQuestionIndex} total={quizState.questions.length} showQuestionNumber={quizState.showQuestionNumber} quizType={quizState.type} onSubmit={handleOpenAnswerSubmit} />;
                 }
                 break;
             case 'vfResults':

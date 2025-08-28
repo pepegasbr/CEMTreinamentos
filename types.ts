@@ -63,7 +63,8 @@ export type Screen =
     | 'openAnswerQuiz' 
     | 'vfResults' 
     | 'openAnswerResults' 
-    | 'admin';
+    | 'admin'
+    | 'submitting';
 
 export interface QuizState {
     type: string;

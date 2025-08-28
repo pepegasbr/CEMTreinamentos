@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from '../ui/Card';
 import Loader from '../ui/Loader';
 
@@ -8,15 +8,34 @@ interface LoadingScreenProps {
 }
 
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ status }) => {
+    const [showLongLoadMessage, setShowLongLoadMessage] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowLongLoadMessage(true);
+        }, 10000); // 10 seconds
+
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <Card className="text-center">
             <div className="flex flex-col items-center justify-center">
                 <Loader />
                 <p className="text-slate-300 font-medium mt-6 mb-2 text-lg">Preparando o ambiente...</p>
-                <p className="text-sm text-slate-400 h-5" aria-live="polite">
+                <p className="text-sm text-slate-400 min-h-[1.25rem]" aria-live="polite">
                     {status}
                 </p>
+                {showLongLoadMessage && (
+                    <p className="text-xs text-slate-500 max-w-xs mx-auto mt-4 animate-fade-in">
+                        Se for a primeira vez que está acessando, pode demorar um pouco (até 30 segundos). Logo o treinamento irá carregar!
+                    </p>
+                )}
             </div>
+            <style>{`
+                @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+                .animate-fade-in { animation: fade-in 0.5s ease forwards; }
+            `}</style>
         </Card>
     );
 };

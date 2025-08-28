@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Card from '../ui/Card';
 import Button from '../ui/Button';
 import { OpenAnswerQuestion } from '../../types';
-import { MAX_OA_CHARS, LS_KEYS } from '../../constants';
+import { MAX_OA_CHARS } from '../../constants';
 
 interface OpenAnswerQuizScreenProps {
     question: OpenAnswerQuestion;
@@ -11,14 +11,12 @@ interface OpenAnswerQuizScreenProps {
     showQuestionNumber: boolean;
     quizType: string;
     onSubmit: (answer: string) => void;
-    addToast: (message: string, type: 'info' | 'success') => void;
 }
 
-const OpenAnswerQuizScreen: React.FC<OpenAnswerQuizScreenProps> = ({ question, current, total, showQuestionNumber, quizType, onSubmit, addToast }) => {
+const OpenAnswerQuizScreen: React.FC<OpenAnswerQuizScreenProps> = ({ question, current, total, showQuestionNumber, quizType, onSubmit }) => {
     const [answer, setAnswer] = useState('');
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const progress = ((current + 1) / total) * 100;
-    const draftKey = `${quizType}|${current}`;
 
     const autoResizeTextarea = () => {
         if (textareaRef.current) {
@@ -28,41 +26,20 @@ const OpenAnswerQuizScreen: React.FC<OpenAnswerQuizScreenProps> = ({ question, c
     };
     
     useEffect(() => {
-        // Reset and try to load draft when question changes
+        // Reset answer when question changes
         setAnswer(''); 
-        try {
-            const draftData = localStorage.getItem(LS_KEYS.DRAFT);
-            if (draftData) {
-                const draft = JSON.parse(draftData);
-                if (draft.key === draftKey && draft.answer) {
-                    setAnswer(draft.answer);
-                    addToast('Rascunho restaurado.', 'info');
-                }
-            }
-        } catch (error) {
-            console.error("Failed to parse draft:", error);
-        }
-    }, [question, current, quizType, draftKey, addToast]);
+    }, [question]);
 
     useEffect(() => {
         autoResizeTextarea();
     }, [answer]);
 
-    const saveDraft = () => {
-        try {
-            localStorage.setItem(LS_KEYS.DRAFT, JSON.stringify({ key: draftKey, answer, time: Date.now() }));
-            addToast('Rascunho salvo.', 'success');
-        } catch (error) {
-            console.error("Failed to save draft:", error);
-        }
-    };
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const trimmedAnswer = answer.trim();
         if (trimmedAnswer) {
             onSubmit(trimmedAnswer);
-            localStorage.removeItem(LS_KEYS.DRAFT);
         }
     };
     
@@ -91,10 +68,7 @@ const OpenAnswerQuizScreen: React.FC<OpenAnswerQuizScreenProps> = ({ question, c
                             value={answer}
                             onChange={(e) => setAnswer(e.target.value)}
                         ></textarea>
-                        <div className="flex items-center justify-between mt-2 text-xs text-slate-400">
-                            <button type="button" onClick={saveDraft} className="text-slate-300 hover:text-white underline underline-offset-2">
-                                Salvar rascunho
-                            </button>
+                        <div className="flex items-center justify-end mt-2 text-xs text-slate-400 min-h-[1rem]">
                             <span className={isOverLimit ? 'text-red-400' : ''}>
                                 {charCount}/{MAX_OA_CHARS}
                             </span>
