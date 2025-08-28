@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import Card from '../ui/Card';
 import Button from '../ui/Button';
@@ -71,40 +70,51 @@ const OpenAnswerQuizScreen: React.FC<OpenAnswerQuizScreenProps> = ({ question, c
     const isOverLimit = charCount > MAX_OA_CHARS;
 
     return (
-        <Card className="w-full max-w-2xl">
-            {showQuestionNumber && (
-                <div className="mb-6 text-center">
-                    <p className="text-sm text-slate-400">Pergunta {current + 1} de {total}</p>
-                    <div className="w-full bg-slate-700 rounded-full h-2.5 mt-2 overflow-hidden">
-                        <div className="bg-[var(--theme-blue)] h-2.5 rounded-full transition-all duration-300" style={{ width: `${progress}%` }}></div>
+        <>
+            <Card className="w-full max-w-2xl">
+                {showQuestionNumber && (
+                    <div className="mb-6 text-center">
+                        <p className="text-sm text-slate-400">Pergunta {current + 1} de {total}</p>
+                        <div className="w-full bg-slate-700 rounded-full h-2.5 mt-2 overflow-hidden">
+                            <div className="bg-[var(--theme-blue)] h-2.5 rounded-full transition-all duration-300" style={{ width: `${progress}%` }}></div>
+                        </div>
                     </div>
-                </div>
-            )}
-            <p className="text-xl font-medium mb-4 text-white">{question.question}</p>
-            <form onSubmit={handleSubmit}>
-                <div className="relative">
-                    <textarea 
-                        ref={textareaRef}
-                        rows={6} 
-                        className="w-full bg-[--input-bg] border border-[--card-border] text-[--text-light] rounded-xl p-4 transition-all duration-200 resize-none focus:outline-none focus:border-[--theme-blue] focus:ring-4 focus:ring-blue-500/40"
-                        placeholder="Digite sua resposta aqui..."
-                        value={answer}
-                        onChange={(e) => setAnswer(e.target.value)}
-                    ></textarea>
-                    <div className="flex items-center justify-between mt-2 text-xs text-slate-400">
-                        <button type="button" onClick={saveDraft} className="text-slate-300 hover:text-white underline underline-offset-2">
-                            Salvar rascunho
-                        </button>
-                        <span className={isOverLimit ? 'text-red-400' : ''}>
-                            {charCount}/{MAX_OA_CHARS}
-                        </span>
+                )}
+                <p className="text-xl font-medium mb-4 text-white animate-text-slide-in">{question.question}</p>
+                <form onSubmit={handleSubmit}>
+                    <div className="relative">
+                        <textarea 
+                            ref={textareaRef}
+                            rows={6} 
+                            className="w-full bg-[--input-bg] border border-[--card-border] text-[--text-light] rounded-xl p-4 transition-all duration-200 resize-none focus:outline-none focus:border-[--theme-blue] focus:ring-4 focus:ring-blue-500/40"
+                            placeholder="Digite sua resposta aqui..."
+                            value={answer}
+                            onChange={(e) => setAnswer(e.target.value)}
+                        ></textarea>
+                        <div className="flex items-center justify-between mt-2 text-xs text-slate-400">
+                            <button type="button" onClick={saveDraft} className="text-slate-300 hover:text-white underline underline-offset-2">
+                                Salvar rascunho
+                            </button>
+                            <span className={isOverLimit ? 'text-red-400' : ''}>
+                                {charCount}/{MAX_OA_CHARS}
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <Button type="submit" className="w-full mt-6" disabled={!answer.trim()}>
-                    Próxima Pergunta
-                </Button>
-            </form>
-        </Card>
+                    <Button type="submit" className="w-full mt-6" disabled={!answer.trim()}>
+                        Próxima Pergunta
+                    </Button>
+                </form>
+            </Card>
+            <style>{`
+                @keyframes text-slide-in {
+                    from { opacity: 0; transform: translateX(15px); }
+                    to { opacity: 1; transform: translateX(0); }
+                }
+                .animate-text-slide-in { 
+                    animation: text-slide-in 0.35s ease-out forwards;
+                }
+            `}</style>
+        </>
     );
 };
 

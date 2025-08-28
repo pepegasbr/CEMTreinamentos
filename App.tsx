@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { AllQuestions, Screen, User, QuizState, VFQuestion, OpenAnswerQuestion, Question, VFAnswer, OpenAnswer, Toast, ModalState } from './types';
 import { LS_KEYS, TOTAL_FARDAS_QUESTIONS, TOTAL_VF_QUESTIONS, DOC_IDS } from './constants';
@@ -248,13 +247,13 @@ const App: React.FC = () => {
             case 'vfQuiz':
                 if (quizState) {
                     const q = quizState.questions[quizState.currentQuestionIndex] as VFQuestion;
-                    return <VfQuizScreen question={q} current={quizState.currentQuestionIndex} total={quizState.questions.length} onAnswer={handleVfAnswer} onBack={handleVfBack} />;
+                    return <VfQuizScreen key={quizState.currentQuestionIndex} question={q} current={quizState.currentQuestionIndex} total={quizState.questions.length} onAnswer={handleVfAnswer} onBack={handleVfBack} />;
                 }
                 break;
             case 'openAnswerQuiz':
                 if (quizState) {
                     const q = quizState.questions[quizState.currentQuestionIndex] as OpenAnswerQuestion;
-                    return <OpenAnswerQuizScreen question={q} current={quizState.currentQuestionIndex} total={quizState.questions.length} showQuestionNumber={quizState.showQuestionNumber} quizType={quizState.type} onSubmit={handleOpenAnswerSubmit} addToast={addToast}/>;
+                    return <OpenAnswerQuizScreen key={quizState.currentQuestionIndex} question={q} current={quizState.currentQuestionIndex} total={quizState.questions.length} showQuestionNumber={quizState.showQuestionNumber} quizType={quizState.type} onSubmit={handleOpenAnswerSubmit} addToast={addToast}/>;
                 }
                 break;
             case 'vfResults':
