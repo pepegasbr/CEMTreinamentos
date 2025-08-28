@@ -17,7 +17,7 @@ interface OpenAnswerQuizScreenProps {
 const OpenAnswerQuizScreen: React.FC<OpenAnswerQuizScreenProps> = ({ question, current, total, showQuestionNumber, quizType, onSubmit, addToast }) => {
     const [answer, setAnswer] = useState('');
     const textareaRef = useRef<HTMLTextAreaElement>(null);
-    const progress = (current / total) * 100;
+    const progress = ((current + 1) / total) * 100;
     const draftKey = `${quizType}|${current}`;
 
     const autoResizeTextarea = () => {

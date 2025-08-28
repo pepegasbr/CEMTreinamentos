@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useCallback } from 'react';
 import { AllQuestions, Screen, User, QuizState, VFQuestion, OpenAnswerQuestion, Question, VFAnswer, OpenAnswer, Toast, ModalState } from './types';
 import { LS_KEYS, TOTAL_FARDAS_QUESTIONS, TOTAL_VF_QUESTIONS, DOC_IDS } from './constants';
@@ -108,7 +109,7 @@ const App: React.FC = () => {
                 case 'fardas':
                     if (!currentQuestions.fardas) return;
                     const fardasQuestions = shuffleArray(currentQuestions.fardas).slice(0, TOTAL_FARDAS_QUESTIONS);
-                    startQuiz(fardasQuestions, 'Treinamento de Fardas', false);
+                    startQuiz(fardasQuestions, 'Treinamento de Fardas', true);
                     break;
             }
         };
@@ -282,7 +283,7 @@ const App: React.FC = () => {
 
     return (
         <div className="flex flex-col min-h-screen items-center space-y-4">
-            <Header user={user} quizType={quizState?.type || 'Seleção'} onGoHome={resetToHome} />
+            <Header user={user} quizType={quizState?.type || 'Seleção'} onGoHome={resetToHome} screen={screen} />
             <main className="flex-grow flex items-center justify-center w-full px-4">
                 {renderScreen()}
             </main>

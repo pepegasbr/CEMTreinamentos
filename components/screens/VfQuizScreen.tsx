@@ -12,7 +12,7 @@ interface VfQuizScreenProps {
 }
 
 const VfQuizScreen: React.FC<VfQuizScreenProps> = ({ question, current, total, onAnswer, onBack }) => {
-    const progress = (current / total) * 100;
+    const progress = ((current + 1) / total) * 100;
 
     return (
         <>

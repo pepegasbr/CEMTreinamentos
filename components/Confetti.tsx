@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 
 const Confetti: React.FC = () => {
@@ -29,17 +28,21 @@ const Confetti: React.FC = () => {
 
   return (
     <>
-      <div aria-hidden="true">{pieces}</div>
+      <div 
+        className="fixed inset-0 z-[2000] overflow-hidden pointer-events-none"
+        aria-hidden="true"
+      >
+        {pieces}
+      </div>
       <style>{`
         .confetti {
-            position: fixed;
+            position: absolute; /* Changed from fixed to be contained */
             top: -10px;
             width: 8px; height: 14px;
             opacity: .9;
             transform: rotate(15deg);
             border-radius: 2px;
             animation: fall linear forwards;
-            pointer-events: none;
         }
         @keyframes fall {
             to { transform: translateY(110vh) rotate(360deg) }
