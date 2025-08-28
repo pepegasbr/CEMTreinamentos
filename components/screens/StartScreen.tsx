@@ -30,11 +30,11 @@ const StartScreen: React.FC<StartScreenProps> = ({ onNext }) => {
         <Card className="text-center max-w-lg w-full">
             <img src="https://i.imgur.com/1d0DeWS.png" alt="Logo CEM" className="w-20 h-20 mx-auto mb-5 rounded-full shadow-md" />
             <h1 className="text-3xl font-bold mb-2 text-white">Bem-vindo(a) ao Treinamento!</h1>
-            <p className="text-slate-300 mb-6">Para começar, por favor, insira seu nome ou apelido.</p>
+            <p className="text-slate-300 mb-6">Para começar, por favor, insira seu nome.</p>
             <form onSubmit={(e) => { e.preventDefault(); handleNext(); }} className="space-y-4 max-w-sm mx-auto">
                 <Input 
                     ref={inputRef}
-                    icon="🏷️"
+                    icon="👤"
                     type="text" 
                     id="nickname" 
                     placeholder="Digite seu nick aqui" 

@@ -1,7 +1,7 @@
 
 export interface User {
     nickname: string;
-    instructorName: string;
+    aplicadorName: string;
 }
 
 export interface VFQuestion {
@@ -35,7 +35,7 @@ export type Answer = VFAnswer | OpenAnswer;
 
 export interface QuizSession {
     timestamp: string;
-    instructorName: string;
+    aplicadorName: string;
     score?: string;
     answers: Answer[];
 }
@@ -55,7 +55,7 @@ export interface AllQuestions {
 export type Screen = 
     | 'loading' 
     | 'start' 
-    | 'instructor' 
+    | 'aplicador' 
     | 'trainingSelection' 
     | 'tdpSelection' 
     | 'avdocResSelection' 

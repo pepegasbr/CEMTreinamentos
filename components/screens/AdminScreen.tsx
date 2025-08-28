@@ -135,7 +135,7 @@ const SessionDetails: React.FC<{session: QuizSession}> = ({ session }) => (
         <summary className="cursor-pointer select-none flex items-center justify-between text-white list-none [&::-webkit-details-marker]:hidden">
             <div>
                 <span className="text-sm text-slate-400">
-                    <strong>Aplicador:</strong> {session.instructorName || '—'} | <strong>Data:</strong> {new Date(session.timestamp).toLocaleString('pt-BR')}
+                    <strong>Aplicador:</strong> {session.aplicadorName || '—'} | <strong>Data:</strong> {new Date(session.timestamp).toLocaleString('pt-BR')}
                 </span>
                 {session.score && session.score.includes('/') && <div className="font-bold text-lg text-[var(--theme-blue)]">Pontuação: {session.score}</div>}
             </div>

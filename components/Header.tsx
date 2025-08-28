@@ -25,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({ user, quizType, onGoHome }) => {
             <div className="text-xs sm:text-sm leading-tight">
               <div className="font-semibold text-white">{user.nickname}</div>
               <div className="text-[11px] text-slate-300">
-                Instrutor: <span>{user.instructorName}</span>
+                Aplicador: <span>{user.aplicadorName}</span>
                 <span className="mx-1">•</span>
                 <span>{quizType}</span>
               </div>

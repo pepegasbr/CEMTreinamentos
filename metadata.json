@@ -1,5 +1,5 @@
 {
   "name": "Treinamento Interativo CEM",
-  "description": "Uma aplicação de treinamento interativo para o Centro de Elitização Militar, oferecendo diversos tipos de questionários, como Verdadeiro ou Falso, dissertativos e de avaliação documental, além de um painel de instrutor para acompanhamento.",
+  "description": "Uma aplicação de treinamento interativo para o Centro de Elitização Militar, oferecendo diversos tipos de questionários, como Verdadeiro ou Falso, dissertativos e de avaliação documental, além de um painel de aplicador para acompanhamento.",
   "requestFramePermissions": []
 }

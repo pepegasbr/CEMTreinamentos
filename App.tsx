@@ -6,7 +6,7 @@ import { loadQuizData, sendDataToSpreadsheet } from './services/apiService';
 // Import Screens
 import LoadingScreen from './components/screens/LoadingScreen';
 import StartScreen from './components/screens/StartScreen';
-import InstructorScreen from './components/screens/InstructorScreen';
+import AplicadorScreen from './components/screens/InstructorScreen';
 import TrainingSelectionScreen from './components/screens/TrainingSelectionScreen';
 import TdpSelectionScreen from './components/screens/TdpSelectionScreen';
 import AvdocResSelectionScreen from './components/screens/AvdocResSelectionScreen';
@@ -72,15 +72,15 @@ const App: React.FC = () => {
             setScreen('admin');
             return;
         }
-        setUser({ nickname, instructorName: '' });
+        setUser({ nickname, aplicadorName: '' });
         localStorage.setItem(LS_KEYS.NICK, nickname);
-        setScreen('instructor');
+        setScreen('aplicador');
     };
 
-    const handleInstructor = (instructorName: string) => {
+    const handleAplicador = (aplicadorName: string) => {
         if (user) {
-            setUser({ ...user, instructorName });
-            localStorage.setItem(LS_KEYS.INSTRUCTOR, instructorName);
+            setUser({ ...user, aplicadorName });
+            localStorage.setItem(LS_KEYS.APLICADOR, aplicadorName);
             setScreen('trainingSelection');
         }
     };
@@ -205,7 +205,7 @@ const App: React.FC = () => {
                 });
                 const score = vfAnswers.filter(a => a.isCorrect).length;
                 try {
-                    await sendDataToSpreadsheet({ nickname: user.nickname, instructorName: user.instructorName, quizType: quizState.type, score: `${score}/${vfAnswers.length}`, answers: vfAnswers });
+                    await sendDataToSpreadsheet({ nickname: user.nickname, aplicadorName: user.aplicadorName, quizType: quizState.type, score: `${score}/${vfAnswers.length}`, answers: vfAnswers });
                     addToast('Respostas enviadas com sucesso!', 'success');
                 } catch(e) {
                     showAlert('Erro ao enviar respostas. Verifique sua conexão.');
@@ -220,7 +220,7 @@ const App: React.FC = () => {
                     };
                 });
                  try {
-                    await sendDataToSpreadsheet({ nickname: user.nickname, instructorName: user.instructorName, quizType: quizState.type, answers: oaAnswers });
+                    await sendDataToSpreadsheet({ nickname: user.nickname, aplicadorName: user.aplicadorName, quizType: quizState.type, answers: oaAnswers });
                     addToast('Respostas enviadas com sucesso!', 'success');
                 } catch(e) {
                     showAlert('Erro ao enviar respostas. Verifique sua conexão.');
@@ -239,7 +239,7 @@ const App: React.FC = () => {
         switch (screen) {
             case 'loading': return <LoadingScreen status={loadingStatus} />;
             case 'start': return <StartScreen onNext={handleStart} />;
-            case 'instructor': return <InstructorScreen onStart={handleInstructor} />;
+            case 'aplicador': return <AplicadorScreen onStart={handleAplicador} />;
             case 'admin': return <AdminScreen onExit={() => window.location.reload()} />;
             case 'trainingSelection': return user && <TrainingSelectionScreen user={user} onSelect={handleTrainingSelect} />;
             case 'tdpSelection': return <TdpSelectionScreen tdpQuestionsByEval={allQuestions.tdp!} onSelect={(q, type) => startQuiz(q, type, true)} />;
