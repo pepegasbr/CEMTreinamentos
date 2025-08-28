@@ -1,5 +1,5 @@
 import { DOC_IDS, SCRIPT_URL, PROXY_URL, DOCS_URL_PREFIX, DOCS_URL_SUFFIX } from '../constants';
-import { AllQuestions, OpenAnswerQuestion, VFQuestion, AdminStudentData, Answer } from '../types';
+import { OpenAnswerQuestion, VFQuestion, AdminStudentData, Answer } from '../types';
 
 // --- Parsers ---
 
@@ -105,50 +105,44 @@ async function fetchDocContent(docId: string, setLoadingStatus: (status: string)
     throw new Error(`Falha ao carregar ${docName}.`);
 }
 
+export async function loadQuizData(
+    key: keyof typeof DOC_IDS,
+    setLoadingStatus: (status: string) => void
+): Promise<VFQuestion[] | Record<string, OpenAnswerQuestion[]> | OpenAnswerQuestion[]> {
+    const docId = DOC_IDS[key];
+    const docNameMap: Record<keyof typeof DOC_IDS, string> = {
+        VF: 'Verdadeiro ou Falso',
+        TDP: 'Treinamento Documental',
+        AVDOC_RES: 'Avaliação / Resolução',
+        PULSO_FIRME: 'Pulso Firme & Rigidez',
+        FARDAS: 'Treinamento de Fardas',
+    };
+    const docName = docNameMap[key];
 
-export async function preloadAllData(setLoadingStatus: (status: string) => void): Promise<AllQuestions> {
-    setLoadingStatus('Carregando todos os treinamentos...');
-
-    const docsToFetch = [
-        { key: 'VF', id: DOC_IDS.VF, name: 'Verdadeiro ou Falso' },
-        { key: 'TDP', id: DOC_IDS.TDP, name: 'Treinamento Documental' },
-        { key: 'AVDOC_RES', id: DOC_IDS.AVDOC_RES, name: 'Avaliação / Resolução' },
-        { key: 'PULSO_FIRME', id: DOC_IDS.PULSO_FIRME, name: 'Pulso Firme & Rigidez' },
-        { key: 'FARDAS', id: DOC_IDS.FARDAS, name: 'Treinamento de Fardas' },
-    ];
-
-    try {
-        const docPromises = docsToFetch.map(doc =>
-            fetchDocContent(doc.id, setLoadingStatus, doc.name)
-        );
-
-        const [vfText, tdpText, avdocResText, pulsoFirmeText, fardasText] = await Promise.all(docPromises);
-
-        setLoadingStatus('Processando dados...');
-        
-        const allQuestions: AllQuestions = {
-            vf: [],
-            tdp: {},
-            avdocRes: {},
-            pulsoFirme: [],
-            fardas: [],
-        };
-
-        allQuestions.vf = parseVFQuestions(vfText);
-        parseOpenAnswerDoc(tdpText, allQuestions.tdp, /\[(AV\d+)\]/g);
-        parseOpenAnswerDoc(avdocResText, allQuestions.avdocRes, /\[(AVDOC|RES)\]/g);
-        allQuestions.pulsoFirme = parseOpenAnswerDoc(pulsoFirmeText);
-        allQuestions.fardas = parseOpenAnswerDoc(fardasText);
-        
-        setLoadingStatus('Tudo pronto!');
-        return allQuestions;
-
-    } catch (error) {
-        console.error("Error preloading data:", error);
-        // Rethrow the error to be caught by the caller in App.tsx
-        throw error;
+    setLoadingStatus(`Carregando ${docName}...`);
+    const text = await fetchDocContent(docId, setLoadingStatus, docName);
+    
+    setLoadingStatus('Processando dados...');
+    switch (key) {
+        case 'VF':
+            return parseVFQuestions(text);
+        case 'TDP': {
+            const tdpData = {};
+            parseOpenAnswerDoc(text, tdpData, /\[(AV\d+)\]/g);
+            return tdpData;
+        }
+        case 'AVDOC_RES': {
+            const avdocData = {};
+            parseOpenAnswerDoc(text, avdocData, /\[(AVDOC|RES)\]/g);
+            return avdocData;
+        }
+        case 'PULSO_FIRME':
+            return parseOpenAnswerDoc(text);
+        case 'FARDAS':
+            return parseOpenAnswerDoc(text);
     }
 }
+
 
 export async function sendDataToSpreadsheet(data: {
     nickname: string;

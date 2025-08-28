@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { AllQuestions, Screen, User, QuizState, VFQuestion, OpenAnswerQuestion, Question, VFAnswer, OpenAnswer, Toast, ModalState } from './types';
-import { LS_KEYS, TOTAL_FARDAS_QUESTIONS, TOTAL_VF_QUESTIONS } from './constants';
-import { preloadAllData, sendDataToSpreadsheet } from './services/apiService';
+import { LS_KEYS, TOTAL_FARDAS_QUESTIONS, TOTAL_VF_QUESTIONS, DOC_IDS } from './constants';
+import { loadQuizData, sendDataToSpreadsheet } from './services/apiService';
 
 // Import Screens
 import LoadingScreen from './components/screens/LoadingScreen';
@@ -27,7 +27,7 @@ import { ToastContainer } from './components/ui/Toast';
 const App: React.FC = () => {
     const [screen, setScreen] = useState<Screen>('loading');
     const [loadingStatus, setLoadingStatus] = useState('Iniciando...');
-    const [allQuestions, setAllQuestions] = useState<AllQuestions | null>(null);
+    const [allQuestions, setAllQuestions] = useState<Partial<AllQuestions>>({});
     const [user, setUser] = useState<User | null>(null);
     const [quizState, setQuizState] = useState<QuizState | null>(null);
     const [toasts, setToasts] = useState<Toast[]>([]);
@@ -35,17 +35,8 @@ const App: React.FC = () => {
 
     // --- Effects ---
     useEffect(() => {
-        const load = async () => {
-            try {
-                const data = await preloadAllData(setLoadingStatus);
-                setAllQuestions(data);
-                setScreen('start');
-            } catch (error) {
-                console.error("Failed to load data:", error);
-                setLoadingStatus(`Falha ao carregar os dados. Verifique sua conexão e recarregue a página.`);
-            }
-        };
-        load();
+        // App starts immediately, no data preloading.
+        setScreen('start');
     }, []);
 
     // --- Helper Functions ---
@@ -95,27 +86,49 @@ const App: React.FC = () => {
         }
     };
 
-    const handleTrainingSelect = (quizKey: 'vf' | 'tdp' | 'avdocRes' | 'pulsoFirme' | 'fardas') => {
-        if (!allQuestions) return;
-        
-        switch (quizKey) {
-            case 'vf':
-                const vfQuestions = shuffleArray(allQuestions.vf).slice(0, TOTAL_VF_QUESTIONS);
-                startQuiz(vfQuestions, 'Verdadeiro ou Falso', true);
-                break;
-            case 'tdp':
-                setScreen('tdpSelection');
-                break;
-            case 'avdocRes':
-                setScreen('avdocResSelection');
-                break;
-            case 'pulsoFirme':
-                startQuiz(allQuestions.pulsoFirme, 'Pulso Firme & Rigidez', true);
-                break;
-            case 'fardas':
-                const fardasQuestions = shuffleArray(allQuestions.fardas).slice(0, TOTAL_FARDAS_QUESTIONS);
-                startQuiz(fardasQuestions, 'Treinamento de Fardas', false);
-                break;
+    const handleTrainingSelect = async (quizKey: 'vf' | 'tdp' | 'avdocRes' | 'pulsoFirme' | 'fardas') => {
+        const proceedToQuiz = (currentQuestions: Partial<AllQuestions>) => {
+            if (!currentQuestions) return;
+            
+            switch (quizKey) {
+                case 'vf':
+                    if (!currentQuestions.vf) return;
+                    const vfQuestions = shuffleArray(currentQuestions.vf).slice(0, TOTAL_VF_QUESTIONS);
+                    startQuiz(vfQuestions, 'Verdadeiro ou Falso', true);
+                    break;
+                case 'tdp':
+                    setScreen('tdpSelection');
+                    break;
+                case 'avdocRes':
+                    setScreen('avdocResSelection');
+                    break;
+                case 'pulsoFirme':
+                    if (!currentQuestions.pulsoFirme) return;
+                    startQuiz(currentQuestions.pulsoFirme, 'Pulso Firme & Rigidez', true);
+                    break;
+                case 'fardas':
+                    if (!currentQuestions.fardas) return;
+                    const fardasQuestions = shuffleArray(currentQuestions.fardas).slice(0, TOTAL_FARDAS_QUESTIONS);
+                    startQuiz(fardasQuestions, 'Treinamento de Fardas', false);
+                    break;
+            }
+        };
+
+        if (allQuestions[quizKey]) {
+            proceedToQuiz(allQuestions);
+        } else {
+            setScreen('loading');
+            const keyMap = { vf: 'VF', tdp: 'TDP', avdocRes: 'AVDOC_RES', pulsoFirme: 'PULSO_FIRME', fardas: 'FARDAS' };
+            try {
+                const data = await loadQuizData(keyMap[quizKey] as keyof typeof DOC_IDS, setLoadingStatus);
+                const newQuestionsState = { ...allQuestions, [quizKey]: data };
+                setAllQuestions(newQuestionsState);
+                proceedToQuiz(newQuestionsState);
+            } catch (error) {
+                console.error("Failed to load quiz data:", error);
+                showAlert(`Falha ao carregar o treinamento. Tente novamente mais tarde.`);
+                setScreen('trainingSelection');
+            }
         }
     };
 
@@ -224,16 +237,14 @@ const App: React.FC = () => {
     
     // --- Render Logic ---
     const renderScreen = () => {
-        if (!allQuestions) return <LoadingScreen status={loadingStatus} />;
-
         switch (screen) {
             case 'loading': return <LoadingScreen status={loadingStatus} />;
             case 'start': return <StartScreen onNext={handleStart} />;
             case 'instructor': return <InstructorScreen onStart={handleInstructor} />;
             case 'admin': return <AdminScreen onExit={() => window.location.reload()} />;
             case 'trainingSelection': return user && <TrainingSelectionScreen user={user} onSelect={handleTrainingSelect} />;
-            case 'tdpSelection': return <TdpSelectionScreen tdpQuestionsByEval={allQuestions.tdp} onSelect={(q, type) => startQuiz(q, type, true)} />;
-            case 'avdocResSelection': return <AvdocResSelectionScreen avdocResQuestions={allQuestions.avdocRes} onSelect={(q, type) => startQuiz(q, type, true)} />;
+            case 'tdpSelection': return <TdpSelectionScreen tdpQuestionsByEval={allQuestions.tdp!} onSelect={(q, type) => startQuiz(q, type, true)} />;
+            case 'avdocResSelection': return <AvdocResSelectionScreen avdocResQuestions={allQuestions.avdocRes!} onSelect={(q, type) => startQuiz(q, type, true)} />;
             case 'vfQuiz':
                 if (quizState) {
                     const q = quizState.questions[quizState.currentQuestionIndex] as VFQuestion;

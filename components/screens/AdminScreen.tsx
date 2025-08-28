@@ -70,7 +70,7 @@ const AdminScreen: React.FC<AdminScreenProps> = ({ onExit }) => {
 
     return (
         <Card className="w-full max-w-4xl">
-            <h2 className="text-3xl font-bold mb-6 text-white text-center">Painel do Instrutor</h2>
+            <h2 className="text-3xl font-bold mb-6 text-white text-center">Painel do Aplicador</h2>
             <form onSubmit={e => { e.preventDefault(); handleSearch(); }} className="flex flex-col sm:flex-row gap-3 mb-4">
                 <Input
                     icon="🏷️"
@@ -135,9 +135,9 @@ const SessionDetails: React.FC<{session: QuizSession}> = ({ session }) => (
         <summary className="cursor-pointer select-none flex items-center justify-between text-white list-none [&::-webkit-details-marker]:hidden">
             <div>
                 <span className="text-sm text-slate-400">
-                    <strong>Instrutor:</strong> {session.instructorName || '—'} | <strong>Data:</strong> {new Date(session.timestamp).toLocaleString('pt-BR')}
+                    <strong>Aplicador:</strong> {session.instructorName || '—'} | <strong>Data:</strong> {new Date(session.timestamp).toLocaleString('pt-BR')}
                 </span>
-                {session.score && <div className="font-bold text-lg text-[var(--theme-blue)]">Pontuação: {session.score}</div>}
+                {session.score && session.score.includes('/') && <div className="font-bold text-lg text-[var(--theme-blue)]">Pontuação: {session.score}</div>}
             </div>
             <span className="text-xs text-slate-400 group-open:hidden">Mostrar</span>
             <span className="text-xs text-slate-400 hidden group-open:inline">Ocultar</span>
