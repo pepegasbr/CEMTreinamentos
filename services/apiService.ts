@@ -146,7 +146,7 @@ export async function loadQuizData(
 
 export async function sendDataToSpreadsheet(data: {
     nickname: string;
-    aplicadorName: string;
+    instructorName: string;
     quizType: string;
     score?: string;
     answers: Answer[];

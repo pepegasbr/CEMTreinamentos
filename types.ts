@@ -35,7 +35,7 @@ export type Answer = VFAnswer | OpenAnswer;
 
 export interface QuizSession {
     timestamp: string;
-    aplicadorName: string;
+    instructorName: string;
     score?: string;
     answers: Answer[];
 }

@@ -209,7 +209,7 @@ const App: React.FC = () => {
                 });
                 const score = vfAnswers.filter(a => a.isCorrect).length;
                 try {
-                    await sendDataToSpreadsheet({ nickname: user.nickname, aplicadorName: user.aplicadorName, quizType: quizState.type, score: `${score}/${vfAnswers.length}`, answers: vfAnswers });
+                    await sendDataToSpreadsheet({ nickname: user.nickname, instructorName: user.aplicadorName, quizType: quizState.type, score: `${score}/${vfAnswers.length}`, answers: vfAnswers });
                     addToast('Respostas enviadas com sucesso!', 'success');
                 } catch(e) {
                     showAlert('Erro ao enviar respostas. Verifique sua conexão.');
@@ -225,7 +225,7 @@ const App: React.FC = () => {
                     };
                 });
                  try {
-                    await sendDataToSpreadsheet({ nickname: user.nickname, aplicadorName: user.aplicadorName, quizType: quizState.type, answers: oaAnswers });
+                    await sendDataToSpreadsheet({ nickname: user.nickname, instructorName: user.aplicadorName, quizType: quizState.type, answers: oaAnswers });
                     addToast('Respostas enviadas com sucesso!', 'success');
                 } catch(e) {
                     showAlert('Erro ao enviar respostas. Verifique sua conexão.');
