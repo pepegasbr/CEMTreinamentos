@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Card from '../ui/Card';
 import Loader from '../ui/Loader';
@@ -13,7 +12,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ status }) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowLongLoadMessage(true);
-        }, 10000); // 10 seconds
+        }, 10000);
 
         return () => clearTimeout(timer);
     }, []);
@@ -28,7 +27,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ status }) => {
                 </p>
                 {showLongLoadMessage && (
                     <p className="text-xs text-slate-500 max-w-xs mx-auto mt-4 animate-fade-in">
-                        Se for a primeira vez que está acessando, pode demorar um pouco (até 30 segundos). Logo o treinamento irá carregar!
+                        Se a rede estiver instavel, o sistema tenta rotas alternativas e usa a ultima copia salva neste dispositivo quando houver cache.
                     </p>
                 )}
             </div>

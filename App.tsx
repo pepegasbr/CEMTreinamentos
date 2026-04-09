@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { AllQuestions, Screen, User, QuizState, VFQuestion, OpenAnswerQuestion, Question, VFAnswer, OpenAnswer, Toast, ModalState } from './types';
 import { LS_KEYS, TOTAL_FARDAS_QUESTIONS, TOTAL_VF_QUESTIONS, DOC_IDS } from './constants';
-import { loadQuizData, sendDataToSpreadsheet } from './services/apiService';
+import { getCachedQuizData, loadQuizData, prefetchQuizData, sendDataToSpreadsheet } from './services/apiService';
 
 // Import Screens
 import LoadingScreen from './components/screens/LoadingScreen';
@@ -24,6 +24,15 @@ import Footer from './components/Footer';
 import Modal from './components/ui/Modal';
 import { ToastContainer } from './components/ui/Toast';
 
+type TrainingQuizKey = 'vf' | 'tdp' | 'avdocRes' | 'pulsoFirme' | 'fardas';
+
+const QUIZ_KEY_MAP: Record<TrainingQuizKey, keyof typeof DOC_IDS> = {
+    vf: 'VF',
+    tdp: 'TDP',
+    avdocRes: 'AVDOC_RES',
+    pulsoFirme: 'PULSO_FIRME',
+    fardas: 'FARDAS',
+};
 
 const App: React.FC = () => {
     const [screen, setScreen] = useState<Screen>('loading');
@@ -39,6 +48,27 @@ const App: React.FC = () => {
         // App starts immediately, no data preloading.
         setScreen('start');
     }, []);
+
+    useEffect(() => {
+        if (screen !== 'trainingSelection') return;
+
+        let cancelled = false;
+        const timer = window.setTimeout(() => {
+            void (async () => {
+                const warmupOrder: TrainingQuizKey[] = ['vf', 'tdp', 'avdocRes', 'pulsoFirme', 'fardas'];
+
+                for (const quizKey of warmupOrder) {
+                    if (cancelled) return;
+                    await prefetchQuizData(QUIZ_KEY_MAP[quizKey]);
+                }
+            })();
+        }, 600);
+
+        return () => {
+            cancelled = true;
+            window.clearTimeout(timer);
+        };
+    }, [screen]);
 
     // --- Helper Functions ---
     const addToast = useCallback((message: string, type: Toast['type'] = 'info') => {
@@ -87,7 +117,7 @@ const App: React.FC = () => {
         }
     };
 
-    const handleTrainingSelect = async (quizKey: 'vf' | 'tdp' | 'avdocRes' | 'pulsoFirme' | 'fardas') => {
+    const handleTrainingSelect = async (quizKey: TrainingQuizKey) => {
         const proceedToQuiz = (currentQuestions: Partial<AllQuestions>) => {
             if (!currentQuestions) return;
             
@@ -118,10 +148,20 @@ const App: React.FC = () => {
         if (allQuestions[quizKey]) {
             proceedToQuiz(allQuestions);
         } else {
+            const cachedData = getCachedQuizData(QUIZ_KEY_MAP[quizKey]);
+            if (cachedData) {
+                const newQuestionsState = {
+                    ...allQuestions,
+                    [quizKey]: cachedData,
+                } as Partial<AllQuestions>;
+                setAllQuestions(newQuestionsState);
+                proceedToQuiz(newQuestionsState);
+                return;
+            }
+
             setScreen('loading');
-            const keyMap = { vf: 'VF', tdp: 'TDP', avdocRes: 'AVDOC_RES', pulsoFirme: 'PULSO_FIRME', fardas: 'FARDAS' };
             try {
-                const data = await loadQuizData(keyMap[quizKey] as keyof typeof DOC_IDS, setLoadingStatus);
+                const data = await loadQuizData(QUIZ_KEY_MAP[quizKey], setLoadingStatus);
                 const newQuestionsState = { ...allQuestions, [quizKey]: data };
                 setAllQuestions(newQuestionsState);
                 proceedToQuiz(newQuestionsState);

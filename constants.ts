@@ -1,9 +1,10 @@
 export const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwFk73RfITnQIUm9OxRHNNcJt6rNCu6tzRr5PuE0XAGRAaIyv-Kp92S9Fw6aaPFrSbpRw/exec";
 
-// Usando um proxy para contornar problemas de CORS ao buscar diretamente do Google Docs.
-export const PROXY_URL = 'https://api.allorigins.win/raw?url=';
 export const DOCS_URL_PREFIX = 'https://docs.google.com/document/d/';
 export const DOCS_URL_SUFFIX = '/export?format=txt';
+export const DOCS_CACHE_VERSION = '2026-04-09';
+export const DOCS_CACHE_TTL_MS = 1000 * 60 * 60 * 12; // 12 horas
+export const DOC_FETCH_TIMEOUT_MS = 8000;
 
 export const DOC_IDS = {
     VF: '13mufkEtYY8eDHxu_szmMKM_TmAbEV4pr29GStEn80qk',
@@ -22,4 +23,5 @@ export const LS_KEYS = {
     APLICADOR: 'cem_aplicador',
     ADMIN_FILTER: 'cem_admin_filter',
     ADMIN_SORT: 'cem_admin_sort',
+    QUIZ_CACHE_PREFIX: 'cem_quiz_cache',
 };

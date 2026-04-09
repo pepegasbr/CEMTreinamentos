@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>[CEM] Central de Treinamentos</title>
     <link rel="icon" type="image/png" href="https://i.imgur.com/1d0DeWS.png" />
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="//docs.google.com" />
+    <link rel="dns-prefetch" href="//script.google.com" />
+    <link rel="dns-prefetch" href="//api.codetabs.com" />
+    <link rel="dns-prefetch" href="//api.allorigins.win" />
+    <link rel="dns-prefetch" href="//corsproxy.io" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
         :root {
@@ -36,6 +42,12 @@
             0% { background-position: 0% 50% }
             50% { background-position: 100% 50% }
             100% { background-position: 0% 50% }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body {
+                animation: none;
+            }
         }
         
         .custom-select {
