@@ -1,0 +1,199 @@
+1. Quais são as Instâncias da RCC?
+R: Hierarquia, Corregedoria e Alto Comando Supremo.
+
+
+2. Quantas e quais são as subfunções que existem na RCC?
+R: Sala de Atendimento e Auxiliar do Oficial da Guarda.
+
+
+3. Quais patentes compõem a hierarquia do Corpo Militar?
+R: Soldado, Cabo, Sargento, Subtenente, Aspirante à Oficial,
+Tenente, Capitão, Coronel, General, Marechal,
+Comandante e Comandante-Geral.
+
+
+4. Qual a punição para o militar que possuir CFC1/API e entrar
+sem os requisitos obrigatórios no batalhão?
+R: Apresentar-armas por 15 minutos.
+
+
+5. Quais os grupos que fazem parte do Setor de Inteligência?
+R: Serviço Secreto e Grupamento de Ações Táticas Especiais.
+
+
+6. No Batalhão Auxiliar somente poderão ser auxiliados militares que
+possuírem qual patente/cargo?
+R: Sargento/Secretário a Subtenente/Assistente-Chefe.
+
+
+7. No Batalhão Auxiliar, o sentinela assume outra função. Qual?
+R: A função de Operador 4.
+
+
+8. Cite as 5 funções que ocupam a Sala de Controle no Batalhão 3.
+R: Operador 1, Operador 2, Operador 3, Operador 4, Auxiliar Operacional.
+
+
+9. A partir de que patente é obrigatório estar integrado
+a uma companhia para ser promovido?
+R: Sargento.
+
+
+10. Qual o nome do primeiro curso que policiais do Corpo Militar recebem?
+R: Curso de Formação de Soldados
+
+
+11. Quantas gravidades são descritas no Plano Controle Emergencial?
+R: 4.
+
+
+12. Qual dos supremos deu início ao desenvolvimento do RCC System?
+R: Dean.Santos
+
+
+13. Qual era o nome da moeda utilizada no batalhão na edição
+de 2025 do Acampamento Militar?
+R: Revo.
+
+
+14. Dentre os 3 comandantes supremos atuais,
+qual o mais antigo no Alto Comando Supremo?
+R: -Edhone
+
+
+15. Qual subcompanhia existente atualmente já foi uma Companhia?
+R: Organizadores de Ronda.
+
+
+16. Quantos dias um soldado precisa para ser promovido a cabo?
+R: 0 ou Nenhum.
+
+
+17. Quantas especializações existem?
+R: 3 ou três.
+
+
+18. Qual a patente equivale a Tenente no corpo executivo?
+R: Nenhuma.
+
+
+19. Quais são os tipos de rondas existentes?
+R: ronda de recrutamento, ronda de divulgação, ronda de denunciar infratores, ronda de denunciar quartos.
+
+
+20. O que significam as siglas COR e PMJ, respectivamente?
+R: Corregedoria e Procuradoria Militar de Justiça.
+
+
+21. Quem é prioridade no acionamento do Plano de Controle Emergencial?
+R: Comando de Segurança Institucional.
+
+
+22. Quantos cargos existem no Corpo Executivo?
+R: 21 cargos
+
+
+23. Qual curso responsável por formar membros da RAIO?
+R: Curso De Ações Táticas
+
+
+24. Qual a equivalência do Assistente no Corpo Militar?
+R: Subtenente
+
+
+25. Qual é um outro nome existente para o Serviço Secreto (P2) na PMRCC?
+R: Ministério da Defesa.
+
+
+26. Um executivo chamado “KF.” comprou o cargo de VIP, fez seus cursos e foi criar sua
+TAG, porém a TAG exige 3 dígitos. Que procedimento o VIP deve fazer?
+R: Duplicar uma de suas letras para a TAG.
+
+
+27. O Tenente Marcos estava na função de AO quando o Operador 4 deixou um
+Exonerado passar. Qual o crime cometido e qual a punição que deve
+ser efetuada para os dois?
+R: Abandono de dever/Negligência. -50 medalhas efetivas.
+
+
+28. O Aspirante Pedro quer fazer um procedimento de transferência de conta.
+Quem ele deve procurar para realizar o procedimento?
+R: General+/Superintendente+ (com Especialização Intermediária+).
+
+
+29. Qual foi a primeira suprema da RCC?
+R: dezakf1
+
+
+30. Qual era o nome dado ao “corpo executivo”?
+R: Cargos Pagos.
+
+
+31. Quem foi o criador do Programa de Incentivo ao Soldado (PIS)?
+R: Well31
+
+
+32. Qual é o prazo para que o promotor aplique o diálogo pós-promoção ao promovido?
+R: Prazo de 24 horas.
+
+
+33. Se um policial for regressado, quem ficará responsável por conceder
+novamente a especialização?
+R: A Diretoria do Corpo Executivo.
+
+
+34. Qual é o prazo de validade do Certificado de Contribuição Jurídica (PA)?
+R: Não tem prazo, é válido para toda e qualquer carreira.
+
+
+35. Quais policiais têm permissão para solicitar que oficiais e portadores da EI
+postem requerimentos em seu nome?
+R: Comandantes+/Presidentes+ (portador da especialização avançada) e/ou Corregedores.
+
+
+36. Quais policiais podem utilizar do direito à reserva de serviço?
+R: Comandantes+ e Chanceleres por mérito.
+
+
+37. Um oficial reformado no posto de Acionista Majoritário, sendo veterano,
+pode se reintegrar em qual cargo?
+R: Analista.
+
+
+38. Cite dois direitos conquistados que se perde ao ser exonerado da instituição.
+R: PA, CQ, CFO, CFE, passe de reformado/veterano, qualquer forma de reintegração e acesso no RCCSystem e Fórum.
+
+
+39. Qual a punição para a reincidência do recebimento de três medalhas efetivas
+negativas por ações que se enquadram no mesmo crime?
+R: Advertência escrita.
+
+
+40. Pulo de script enquadra-se em qual crime do Código Penal Militar?
+R: Conduta imprópria.
+
+
+41. Quem são responsáveis pelas simulações de ataques nos batalhões?
+E precisam de qual permissão?
+R: Setor de Inteligência com permissão da supremacia.
+
+
+42. Após um encerramento de ataque de gravidade IV,
+o que o responsável pelo acionamento deve fazer?
+R: Encaminhar os prints ao Setor de Inteligência.
+
+
+43. Qual o crime e punição na instituição para o militar que sofrer
+uma expulsão em sua subcompanhia?
+R: R: Abandono de dever e negligência. Advertência escrita.
+
+
+44. Quais postagens no Centro de Recursos Humanos são proibidas
+de postar em licença?
+R: Promoções; Punições administrativas; Transferências de contas;
+Gratificações temporárias; Cancelamentos; Permissões.
+
+
+45. Qual é o prazo para que o promotor aplique o diálogo
+pós-promoção ao promovido?
+R: 24 horas.

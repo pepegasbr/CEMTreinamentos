@@ -8,6 +8,7 @@ import Loader from '../ui/Loader';
 import { AdminStudentData, QuizSession, Answer } from '../../types';
 import { LS_KEYS } from '../../constants';
 import { searchStudent } from '../../services/apiService';
+import { getStoredValue, setStoredValue } from '../../services/storageService';
 
 interface AdminScreenProps {
     onExit: () => void;
@@ -19,12 +20,12 @@ const AdminScreen: React.FC<AdminScreenProps> = ({ onExit }) => {
     const [error, setError] = useState<string | null>(null);
     const [studentData, setStudentData] = useState<AdminStudentData | null>(null);
     
-    const [filterQuiz, setFilterQuiz] = useState(localStorage.getItem(LS_KEYS.ADMIN_FILTER) || 'all');
-    const [sortOrder, setSortOrder] = useState(localStorage.getItem(LS_KEYS.ADMIN_SORT) || 'newest');
+    const [filterQuiz, setFilterQuiz] = useState(() => getStoredValue(LS_KEYS.ADMIN_FILTER, 'all'));
+    const [sortOrder, setSortOrder] = useState(() => getStoredValue(LS_KEYS.ADMIN_SORT, 'newest'));
 
     useEffect(() => {
-        localStorage.setItem(LS_KEYS.ADMIN_FILTER, filterQuiz);
-        localStorage.setItem(LS_KEYS.ADMIN_SORT, sortOrder);
+        setStoredValue(LS_KEYS.ADMIN_FILTER, filterQuiz);
+        setStoredValue(LS_KEYS.ADMIN_SORT, sortOrder);
     }, [filterQuiz, sortOrder]);
 
     const handleSearch = async () => {

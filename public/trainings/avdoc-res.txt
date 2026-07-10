@@ -1,0 +1,98 @@
+[AVDOC]
+
+
+1. Qual é o crime e punição para o oficial que desativar a visibilidade do perfil?
+R: Abandono de dever/negligência. Rebaixamento imediato, e caso permaneçam, serão rebaixados a cada 24 horas.
+
+
+2. Diante de um requerimento de promoção postado ou autorizado por um corregedor, haverá possibilidades deste ser cancelado?
+R: Sim, um requerimento de promoção postado ou autorizado por um corregedor poderá ser cancelado caso este apresente erros de postagem, motivos insuficientes ou o autor do cancelamento seja um superior hierárquico e também membro da Corregedoria.
+
+
+3. Qual a punição para o Oficial do Corpo Executivo, portador da Especialização Intermediária, que não ingressar numa Companhia por 07 dias? E caso seja um Chanceler por mérito?
+R: O Oficial do Corpo Executivo detentor da Especialização Intermediária será punido com regresso de especialização. O Chanceler por Mérito será punido com rebaixamento imediato, sobre tal insuficiência.
+
+
+4. Na ausência de instrutores no batalhão, um oficial do Corpo Militar ou Executivo (com Intermediária+) deverá realizar a instrução inicial. Caso este venha a postar o requerimento do CFSd após 01 hora da aplicação, qual a punição será aplicada e por qual crime?
+R: Será punido com o acréscimo de 50 medalhas efetivas negativas pelo crime de Abandono de dever/negligência.
+
+
+5. Quais são as punições administrativas da instituição?
+R: Advertência verbal, medalhas negativas, advertência escrita, rebaixamento, desligamento desonroso e exoneração.
+
+
+6. A Coronel Rosa compartilhou prints confidenciais de um processo judicial com sua melhor amiga, a Capitão Lilás. Qual foi o crime cometido pela Coronel e qual sua punição?
+R: Ela cometeu o crime de Quebra de Sigilo e sofrerá o rebaixamento de duas patentes ou mais caso a Corregedoria ou o Alto Comando Supremo acharem necessário.
+
+
+7. O Aspirante a Oficial João e o Tenente Marlon foram kickados do batalhão, mas não printaram a tela para comprovar o ocorrido. Quais crimes ambos cometeram e quais punições receberão?
+R: Abandono de Dever/Negligência. A punição para o tenente é de uma advertência escrita e a do aspirante é apenas uma orientação sobre registrar em uma futura emergência.
+
+
+8. Quais são os ataques que são realizados através do uso de direitos?
+R: Ataque de movimentação de mobílias, ataque de mute, ataque de kick e ataque total ao batalhão.
+
+
+9. Na ausência de membros do CSI, quem poderá protocolar o acionamento do plano?
+R: Na ausência dos membros do CSI, somente o Oficial da Guarda - portador de direitos - poderá protocolar o acionamento do plano, além de comunicar o mais rápido possível a um membro do comando.
+
+
+10. Um General, sendo o maior superior presente, entra no batalhão e, logo em seguida, um Comandante também entra. Sabendo que nenhum dos dois iniciou a fala, quem receberá o comando sentido?
+R: O sentido será destinado ao Comandante, que é a maior patente na base.
+
+
+11. Qual a punição e crime para um oficial que migrar de batalhão por motivos fúteis?
+R: Ocasionará em uma advertência escrita, caso o militar seja oficial, ou acréscimo de 50 medalhas efetivas negativas, caso o militar seja praça, pelo crime de Abandono de dever/Negligência.
+
+
+12. Caso um portador de direitos realize a postagem do fechamento do batalhão após os 30 minutos prescritos, qual crime ele estará cometendo e qual será sua punição?
+R: O portador de direitos estará cometendo o crime de Abandono de Dever/Negligência, e deverá ser punido com uma advertência escrita caso seja oficial, ou com 50 medalhas efetivas negativas caso seja praça.
+
+
+[RES]
+
+
+1. Um Comandante requereu uma licença de serviço de 30 dias, usufruindo de todo o período previsto. Entretanto, por questões pessoais, ele precisou solicitar a reserva do serviço, com a intenção de utilizar 80 dias. Apesar desse objetivo inicial, ele notou que poderia retornar antes do previsto e, assim, postou sua volta antes que completasse 30 dias da reserva. Ao notar o requerimento no RCCSystem e ver o Comandante presente no Batalhão, um Comandante-Geral o convocou ao Centro de Instrução e aplicou uma advertência verbal. Diante disso, analise o caso, identifique o que está em desacordo com as regras e aponte os crimes cometidos, bem como as penalidades cabíveis,
+se for o caso.
+R: O Comandante cometeu crime de Abandono de Dever/Negligência, visto que postou a sua volta antes de completar 30 dias mínimos em sua reserva de serviço. Para que o requerimento estivesse correto, este deveria ter solicitado a permissão de um corregedor. Dessa forma, o Comandante deve ser punido com uma advertência escrita. O Comandante-Geral cometeu o crime de Abandono de Dever/Negligência ao negligenciar a punição do Comandante, já que ele deveria ter aplicado uma advertência escrita por Abandono de Dever/Negligência. Levando em consideração o alto posto do Comandante-Geral, ele deve ser punido com uma advertência escrita pelo crime supracitado.
+
+
+2. Ao ser reprovado pela décima vez na Avaliação de Qualificação do Oficialato Intermediário, o VIP Março ordenou ao General Janeiro, integrante da Procuradoria Militar de Justiça, que passasse as respostas da próxima edição e o informou que, caso não o obedecesse, receberia uma advertência escrita por insubordinação. Assim, o General entregou o gabarito e relatou a situação ao Chanceler, portador de Especialização Avançada, Outubro. Diga se o General ficará isento de punições por ter
+passado a situação ao seu superior e aponte quais crimes foram cometidos, suas punições e cite os casos em que um policial, mesmo agindo sob coação, pode ser punido ao acatar ordens de superiores.
+R: O General não receberá punições apesar de ter cometido o crime de Quebra de Sigilo, uma vez que ele foi coagido. O VIP, cometeu o crime de Abuso de Poder, podendo ser punido com um rebaixamento. Um militar, ao acatar a ordem de um superior mesmo por coação, pode ser punido caso a ordem coloque a integridade da instituição em risco e em casos de excessos por parte do coagido.
+
+
+3. O Acionista Majoritário Marcelo e líder do Centro de Elitização Militar criou uma conta fake, sem solicitar autorização, com o objetivo de averiguar a qualidade das aulas e treinamentos da sua subcompanhia, uma vez que percebeu uma baixa na aplicação de aulas e treinamentos. O Acionista Majoritário foi descoberto pela Comandante-Geral Maria que decidiu não interferir. Diga se as atitudes tomadas foram corretas e caso ocorreram crimes, cite-os e suas punições.
+R: As atitudes tomadas não foram corretas. O Acionista Majoritário cometeu o crime de Utilização de Fakes e a Comandante-Geral Obstrução à Justiça. O Acionista Majoritário não tem o direito de ter conta dupla na instituição, além disso, a Comandante-Geral escondeu o crime cometido ao relevar o caso. O Acionista Majoritário será demitido e a Comandante-Geral rebaixada pelos crimes supracitados.
+
+
+4. A Superintendente Susie, cujo único grupo de tarefas é os Supervisores, percebeu que o Tenente Marcos cometeu três crimes passíveis de exoneração: Corrupção, Importunação Sexual e Traição. Assim, a Superintendente considerou apropriado que cada crime fosse punido com seis meses de exoneração, aplicando, portanto, um total de dezoito meses de exoneração sem permissão. Avalie se a ação da Superintendente foi correta, se foi cometido algum crime e qual seria sua punição.
+R: A ação da Superintendente Susie está incorreta, pois apenas membros da Corregedoria, Grupamento de Ações Táticas Especiais ou Serviço Secreto podem aplicar exonerações, ou policiais que tenham autorização por algum dos membros desses órgãos. Por isso, a Superintendente está passível de rebaixamento pelo crime de Abandono de Dever/Negligência. Ademais, se a soma de duração do tempo passar de um ano, o infrator deverá ser exonerado por tempo indeterminado.
+
+
+5. A Marechal Paris notou que o Chanceler Inglaterra aceitava moedas em troca de favores e decidiu denunciar o caso ao Setor de Inteligência, sem apresentar provas. Entretanto, o Chanceler descobriu a denúncia e rebaixou a militar pelo crime de Acusação Sem Provas. Informe se o Chanceler agiu corretamente e justifique. Caso tenha agido incorretamente, cite o crime e sua possível punição.
+R: Agiu incorretamente. É possível denunciar a um membro do Setor Inteligência uma atitude de outro militar, e isso não se enquadra no crime de acusação sem provas desde que a denúncia de um suspeito ao Setor de Inteligência se trate de uma suposição baseada em determinados indícios. O Chanceler cometeu o crime de Abuso de Poder por ter punido a Marechal de forma injusta e deve ser punido com uma advertência escrita. A punição do suposto crime cometido por ele deve ser avaliada pelo Setor de Inteligência.
+
+
+6. O Marechal e corregedor Caio notou que o Capitão Samuel, atuando como Operador 04, liberou indevidamente um recruta ainda como policial ativo na polícia. Diante disso, ele ordenou que a Coordenadora Adora aplicasse uma avaliação documental ao Capitão, que errou questões básicas. Com a permissão do Marechal, a Coordenadora rebaixou o Capitão por Insuficiência Para a Patente, sem apresentar printscreens ou depoimentos. Analise se as ações do Marechal e da Coordenadora foram
+corretas, se o requerimento será aceito e justifique sua resposta.
+R: As atitudes do Marechal e da Coordenadora foram corretas. O oficial do Corpo Militar que apresentar Insuficiência Para a Patente será punido com um rebaixamento imediato. O requerimento será aceito, haja vista que, por ser membro da corregedoria, a Coordenadora possui autonomia para conceder permissão para rebaixamentos sem a necessidade da apresentação de depoimentos ou conjunto de printscreens.
+
+
+7. Ao checar a listagem de oficiais, o Coronel Verde percebeu que todas as vagas de tenentes estavam ocupadas, entretanto cinco deles estivessem em licença. Para suprir a ausência de tenentes em atividade, ele realizou a promoção de um Aspirante a Oficial e não utilizou permissão. Diga se a promoção foi realizada corretamente e justifique sua resposta, apontando o possível crime e punição aplicável, caso tenha, e mencione a exceção à regra do critério de promoção utilizado. Além disso, informe o crime e a punição aplicados em casos em que uma promoção seja realizada sem a confirmação
+da disponibilidade da vaga.
+R: A promoção foi realizada incorretamente. É obrigatório que o autor da promoção preencha o campo de permissão no requerimento de promoção especificando a normativa que regula essa exceção. O Coronel Verde receberá 50 medalhas efetivas negativas pelo crime de Abandono de Dever/Negligência. A exceção para a regra é que ela não se aplica para as patentes de Comandante, Comandante-Geral e nem para o cargo de Chanceler por mérito. Caso uma promoção seja realizada sem a confirmação da disponibilidade da vaga, o promotor do requerimento será punido com uma advertência escrita pelo crime de Abandono de dever/Negligência.
+
+
+8. A Comandante Lilás percebeu que o General Castanho estava utilizando a farda de Marechal. Apesar disso, embora parecesse que havia sido promovido, sua missão e grupo ainda indicavam a patente de General e que não havia requerimento de promoção registrado. Posteriormente, durante um sentido em base, o militar recebeu a palavra e anunciou a próxima atividade obrigatória do Corpo de Oficiais, afirmando ter participado da organização. Indique se algum crime foi cometido, justifique e
+apresente a respectiva punição.
+R: Sim, um crime foi cometido. O crime cometido foi autopromoção, apesar de não portar missão ou grupos da patente, o General utilizava uniforme falsificado e fazia declarações de autonomia do posto falso. O General será demitido pelo crime cometido.
+
+
+9. O Capitão Julho, ao ser confrontado pelo Coronel Setembro por não cumprir a ordem de se dirigir ao Centro de Instruções para ajudar um Cabo, reagiu com ironia, alegando estar cansado de receber ordens que considerava desnecessárias para sua patente. O Supervisor Fevereiro, amigo do Capitão Julho, ao observar a situação, apoiou e incentivou a atitude do Capitão. Nesse contexto, ambos cometeram crimes? Se sim, justifique e diga quais as punições apropriadas para cada um.
+R: Sim, eles cometeram. O Supervisor ao apoiar publicamente as atitudes do Capitão cometeu o crime Contra a Paz Pública. Já o Capitão cometeu o crime de Desrespeito e Insubordinação ao deixar de cumprir uma ordem que foi solicitada por um superior. A punição para o Supervisor é uma advertência escrita, e para o Capitão, também uma advertência escrita.
+
+
+10. O Capitão Silva teve sua inscrição no Curso de Operações Especiais aprovada, no entanto, foi cortado do curso após três dias de participação. Sentindo-se insatisfeito com a decisão, ele decide compartilhar prints do grupo de comunicação do curso com seu amigo, o Tenente Carvalho, embora ele não tenha participado do curso. O Tenente o aconselha a recorrer da decisão junto à segunda
+instância, alegando que a medida tomada foi injusta. Após essa análise, o Capitão envia um recurso à Corregedoria. Analise e diga se os militares cometeram algum crime e em caso afirmativo, qual a possível punição para cada um. Além disso, cite qual será o veredito da Corregedoria sobre o caso e justifique.
+R: O Capitão cometeu o crime de Quebra de Sigilo por divulgar informações de grupos da rede social WhatsApp nos quais o sigilo é definido pelo Alto Comando Supremo e poderá ser punido com uma advertência escrita até uma exoneração, a depender de quem julgará o caso. O Tenente, ao omitir o crime do Capitão, cometeu o crime de Obstrução à Justiça e poderá ser punido com uma advertência escrita até uma exoneração por tempo indeterminado, a depender de quem julgará o caso. A Corregedoria dará como veredito “não possuir jurisdição para julgar o caso” pois o Alto Comando Supremo é a única única instância a se recorrer a um caso julgado pelo Setor de Inteligência.

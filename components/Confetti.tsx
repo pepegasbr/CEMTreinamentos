@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const Confetti: React.FC = () => {
-  const [pieces, setPieces] = useState<JSX.Element[]>([]);
+  const [pieces, setPieces] = useState<React.ReactElement[]>([]);
 
   useEffect(() => {
     const colors = ['#60a5fa', '#34d399', '#f472b6', '#fbbf24', '#a78bfa', '#22d3ee'];

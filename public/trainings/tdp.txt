@@ -1,0 +1,275 @@
+[AV1]
+
+1. Um dia durante o turno, o Tenente Azul estava procurando o Aspirante a Oficial Verde, para a realização de seu acompanhamento. Ao abrir o perfil do militar, o Tenente notou que o Aspirante estava com a visibilidade desativada. Responda qual será a punição aplicada ao Aspirante que estiver em uma Companhia? E, caso ele permaneça com a visibilidade desativada, qual crime estará cometendo
+juntamente com a sua punição.
+R: Receberá 50 medalhas efetivas negativas e, em casos de permanência após 24 horas da notificação, sofrerá um rebaixamento a cada 24 horas, pelo crime de Abandono de Dever/Negligência.
+
+
+2. Durante a um Treinamento de Fardas no Corredor Principal, o Subtenente Lucas acabou ficando em modo inativo (Zzz), logo após o término da atividade, o Tenente Galhardo resolveu puni-lo com o acréscimo de 50 medalhas negativas efetivas por Conduta Imprópria. A punição foi aplicada corretamente? Se não, qual punição deveria ser aplicada?
+R: Não. O Subtenente sofrerá a punição de apresentar-armas por 15 minutos, por ter ficado em modo inativo durante uma atividade no Corredor Principal.
+
+
+3. O Tenente Roxo, membro do Centro de Elitização Militar aplicou a Mediação Hierárquica para o Subtenente Vermelho. Onde foi promovido para a patente de Aspirante a Oficial pela aprovação na Mediação Hierárquica. O Tenente por vez, realizou o Diálogo Pós Promoção 48h após a postagem do requerimento. O Tenente cometeu algum crime? Se sim, qual? Justifique.
+R: Sim. Cometeu o crime de Abandono de Dever/Negligência. É obrigação do promotor e/ou aplicador de mediação hierárquica realizar, em até 24 horas após a promoção, o diálogo pós-promoção com o intuito de instruir e expor ao militar seus novos desafios.
+
+
+4. O Marechal Azul líder da companhia dos Instrutores, decide migrar para o Corpo Executivo por motivos pessoais. Logo, comprou o cargo de Chanceler, e no decorrer de 30 dias não conseguiu possuir os requisitos necessários para um avanço à especialização Intermediária. O que acontecerá com o atual Chanceler? Justifique.
+R: Será realocado para o cargo de Ministro de companhia. Somente estarão aptos a compor a liderança das companhias os oficiais do Corpo Militar e os executivos que possuírem Especialização Intermediária ou superior. Na hipótese de perda de um dos requisitos, bem como nos casos em que os integrantes das lideranças optarem pelo privilégio da migração de corpo, será concedido o prazo de 30 (trinta) dias para regularização da situação.
+
+
+5. O General Pipo ordenou que a Tenente Jaz fizesse uma ronda, porém a tenente desconsiderou a determinação do seu superior. Qual crime a Tenente cometeu e quais as punições cabíveis?
+R: Desrespeito e Insubordinação. As punições possíveis são desde uma advertência verbal até uma demissão.
+
+
+6. Qual é a duração de uma advertência escrita e por quanto tempo a promoção do policial que recebeu a advertência fica bloqueada?
+R: A advertência escrita tem duração de 30 dias. A promoção fica bloqueada por 07 dias a partir da data de recebimento.
+
+
+7. Qual é a punição para a reincidência de três medalhas efetivas negativas em ações que enquadram-se no mesmo crime?
+R: Advertência escrita.
+
+
+8. Quais órgãos podem realizar uma exoneração?
+R: Membros da Corregedoria, GATE ou P2.
+
+
+9. O Oficial da Guarda Alex foi surpreendido por um repentino ataque de flood vindo de civis do saguão (Gravidade 2), qual procedimento deve ser adotado inicialmente conforme o PCE? E que medidas esse procedimento incluirá?
+R: Procedimento Básico. Deverá mutar e kickar os usuários mal-intencionados constantemente, de acordo com o que for condizente à situação.
+
+
+10. De acordo com o PCE, quais são as condições necessárias para que o procedimento intermediário da Gravidade 3 possa ser acionado por um membro do Comando de Segurança Institucional?
+R: Reincidência na gravidade ou ataque em grande escala por meio da utilização de direitos.
+
+
+[AV2]
+
+
+1. Durante a aplicação de uma aula, o Sargento Laranja notou que o Soldado já tinha um bom
+conhecimento do conteúdo abordado. O Sargento por sua vez, decidiu pular uma parte do script, tendo
+o total de 5 linhas puladas. Qual será a punição aplicada ao Sargento? E em caso de reincidência?
+R: Praças que pularem 05 a 06 linhas deverão ser punidos com 50 medalhas efetivas negativas, em caso de reincidência, rebaixamento e expulsão.
+
+
+2. O Cabo Amarelo, graduador da companhia dos Supervisores, foi rebaixado à patente de Soldado.
+Mesmo com seu rebaixamento ele ainda assim pretende permanecer na companhia. Em quais circunstâncias
+ele poderá retornar ao mesmo cargo ocupado? Justifique.
+R: Terá o prazo de 24 horas após a aprovação do requerimento de rebaixamento, para retornar à patente/cargo mínimo exigido para evitar sua saída.
+
+
+3. Durante a Capacitação Básica, o Cabo Amarelo, recém-ingressado aos Instrutores, solicitou ao
+aplicador da Capacitação para postar sua criação de TAG, tendo em vista problemas por ser usuário da
+versão mobile. O Capacitador por vez, posta o requerimento em seu nome para ajudá-lo. O Capacitador
+cometeu algum crime? Justifique.
+R: Não. Abre-se exceção para os ocupantes do cargo de graduador/capacitador ou superior em companhias com relação às postagens.
+
+
+4. O Coronel Verde decide postar uma licença de 25 dias, após o período de 7 dias o Coronel decide
+postar seu retorno de licença sem a permissão de um Corregedor para mostrar o seu trabalho. O
+Coronel cometeu algum crime? Se sim, qual será a punição? E por qual crime?
+R: Sim. ele cometeu o crime de Abandono de Dever/Negligência ao postar retorno antes de 15 dias e sem a permissão de um corregedor e receberá uma advertência escrita.
+
+
+5. Qual é a ordem decrescente das instâncias do Setor Judiciário?
+R: Alto Comando Supremo, Corregedoria e Hierarquia.
+
+
+6. Qual é o crime cometido e quais são as punições aplicáveis ao policial que estiver ativo na RCC
+e, simultaneamente, em outra polícia?
+R: O ato configurado é crime de traição. A penalidade prevista é a demissão imediata, podendo, em situações mais severas, resultar em exoneração.
+
+
+7. O General Mullet realizou um post no chat do fórum contendo uma piada de péssimo gosto, fazendo
+alusão a uma situação de discriminação, em uma tentativa de humor impróprio. Qual é o crime cometido
+e quais são as punições cabíveis?
+R: O crime é classificado como utilização indevida de canais externos. As sanções aplicáveis variam desde um rebaixamento imediato até a exoneração, dependendo da gravidade.
+
+
+8. O General Bob desenvolveu um projeto de lei que acabou sendo reprovado e arquivado. Sem sua
+autorização, o Tenente Hev reenviou esse projeto, realizando algumas modificações. Qual foi o crime
+cometido e qual é a punição estabelecida para essa conduta?
+R: O crime caracterizado é o de plágio. A penalidade é de 50 medalhas efetivas negativas, e, caso ocorra reincidência, o infrator poderá ser rebaixado, ficando a decisão final sob responsabilidade do Alto Comando Supremo.
+
+
+9. O que ocorrerá com um oficial do Corpo Militar ou Executivo com Especialização Intermediária ou
+superior que não tenha feito o registro de comprovação após sofrer um ataque de kike ou mute?
+R: Será punido com uma advertência escrita por Abandono de Dever/Negligência.
+
+
+10. O que deve ser feito com os policiais que se recusarem a evacuar o batalhão durante o acionamento
+do procedimento único da Gravidade 4?
+R: Deverão ser expulsos do quarto, exceto se forem membros do Comando de Segurança Institucional.
+
+
+[AV3]
+
+
+1. Após uma longa licença de 25 dias, o General Carvalho decide rebaixar por insuficiência o Capitão
+Leonardo a Tenente, por sua vez, o General tinha apenas 5 dias ativos após seu retorno de licença.
+Houve algum crime por parte do General ao rebaixar o Capitão? Se sim, qual punição o General
+sofrerá? E por qual crime?
+R: Sim, e sofrerá a punição de uma advertência escrita pelo crime de abandono de dever/negligência.
+
+
+2. Durante o turno da madrugada, o Tenente Cavalcante enquanto Oficial da Guarda, notou que um
+exonerado entrou pela sala de controle do batalhão. Logo o Tenente aborrecido, decide punir ambos
+operadores (operador 1 e operador 2), por negligenciar a conferência da entrada de policiais. A
+aplicação da punição foi correta? Justifique.
+R: Não. No caso do Batalhão Auxiliar é função do Operador 2 verificar se o indivíduo que está solicitando o acesso ao batalhão é irregular, sendo identificado como fake, exonerado ou inativo. Caso a entrada de um indivíduo irregular seja realizada, o Operador 2 deverá ser punido com o acréscimo de 50 medalhas efetivas negativas pelo crime de Abandono de Dever/Negligência.
+
+
+3. Durante o turno da manhã, o Aspirante Dell adentra ao Batalhão Auxiliar com sua missão em branco.
+Após isso, o Tenente se depara com a situação e decide puni-lo. Qual seria essa punição? E se caso
+fosse um Cabo/equivalência sem os cursos, como seria punido?
+R: Ele seria punido com apresentar-armas por 15 minutos, visto que quem possuir o CFC1/API, terá de apresentar-armas. Se caso fosse um Cabo/equivalência sem os cursos, ele apenas seria advertido verbalmente.
+
+
+4. Para assumir a função de Oficial da Guarda o militar precisa ter realizado a leitura de quais
+documentos?
+R: Código de Comando do Batalhão e Plano de Controle Emergencial.
+
+
+5. A quem cabe o único recurso possível contra uma decisão tomada pelo Setor de Inteligência após
+investigação e julgamento?
+R: Alto Comando Supremo.
+
+
+6. Quando uma ordem direta obriga ou induz um subalterno a praticar um crime, quem é
+responsabilizado pelo ato cometido e qual o efeito dessa coação sobre a punibilidade do militar que
+a executou?
+R: O autor da coação (quem deu a ordem direta) é responsabilizado pelo resultado do crime, enquanto o militar coagido que praticou a conduta delituosa tem sua punibilidade extinta devido à coação sofrida.
+
+
+7. Qual crime se configura a falta de quaisquer habilidades necessárias para um Oficial do Corpo
+Militar? E qual a punição imediata deste crime?
+R: Insuficiência para a patente, a punição é o rebaixamento imediato, conforme a insuficiência apresentada.
+
+
+8. O General Leoncio por motivos pessoais ficou 85 horas offline, sem que houvesse a postagem da
+licença de serviço. O General pode justificar sua ausência sem ser punido? Se não, qual seria a
+punição e crime?
+R: O general não pode, ele cometeu o crime de Insuficiência para a patente por ficar 85 horas offline sem a postagem da licença de serviço, sendo punido com um rebaixamento imediato.
+
+
+9. De acordo com o PCE, quem e com qual permissão está habilitado a realizar simulações de ataques
+reais nos batalhões?
+R: Apenas os membros do Setor de Inteligência, com autorização do Alto Comando Supremo.
+
+
+10. Por quais órgãos o Comando de Segurança Institucional é formado?
+R: O Comando de Segurança Institucional é formado pela Repartição de Ações Interventivas (RAIO), Grupamento de Ações Táticas Especiais (GATE) e Serviço Secreto (P2).
+
+
+[AV4]
+
+
+1. Para assumir a Sala de Atendimento o militar necessita possuir alguns requisitos, quais são
+esses? Além disso, quem poderá ser atendido por esse militar?
+R: Ser Aspirante a Oficial/Analista com a Aula de Formação de Praças (AFP) e, também, poderá somente atender patentes/cargos equivalência ou subalterno.
+
+
+2. O Tenente Flash, durante sua estadia no turno, decide promover o Cabo Juba que estava se
+destacando na recepção. No entanto, resolveu não realizar o diálogo pós-promoção, atribuindo
+diversas dúvidas ao Cabo. Após isso, Juba recorre a você, alegando que possuí diversas dúvidas sobre
+a atual patente, pois não obteve o direcionamento adequado. O Diálogo pós-promoção pode ser
+realizado por outro meio além do habbo?
+R: Sim, o diálogo pós promoção é obrigatório e pode ser realizado por mensagem privada caso não encontre o promovido online.
+
+
+3. Em um certo dia, o Tenente Milton decide sair da companhia dos Supervisores por não ter
+conseguido se adaptar. No entanto, Milton acaba passando uma semana e meia sem adentrar numa nova
+companhia. Qual crime e a punição adequada para o Tenente?
+R: Ele seria rebaixado por insuficiência para a patente, visto que Oficiais do Corpo Militar não podem permanecer mais que 7 dias sem uma companhia.
+
+
+4. Quantas medalhas temporárias podem ser distribuídas em eventos internos e atividades gerais por
+uma Companhia?
+R: 100 medalhas temporárias por mês em eventos internos. Em uma atividade geral serão distribuídas 60 medalhas para cada atividade realizada no mês, totalizando 240 medalhas temporárias mensalmente.
+
+
+5. Durante uma checagem rotineira de presença, o capitão Azul notou a falta do tenente Roxo. Ao
+segui-lo, notou que o mesmo estava construindo o quarto de uma outra organização rival à RCC. Qual
+punição o tenente deverá receber? E por qual crime?
+R: Ele deverá receber uma demissão imediata pelo crime de traição ao prestar serviços à outra organização.
+
+
+6. O Coronel Marrom sofreu uma punição de rebaixamento realizada pelo Setor de Inteligência.
+Posteriormente recorreu para a Corregedoria. A qual instância o Coronel deveria recorrer? E por que
+não foi correto ter ido à Corregedoria?
+R: Casos julgados e investigados pelo Setor de Inteligência somente podem ter sua recorrência para a Supremacia, sendo a instância superior à Corregedoria.
+
+
+7. Como o militar que for submetido a uma exoneração temporária pode reduzir o período de sua
+punição? E por quais órgãos?
+R: O militar pode reduzir ao ter um Projeto Aprovado pela Corregedoria, Setor de Inteligência ou Alto Comando Supremo.
+
+
+8. A utilização de conta dupla é um crime que possui dois graus previstos. Cite qual o grau passível
+de exoneração.
+R: Segundo grau, utilização de duas ou mais contas com auto benefício, tendo a punição de Exoneração de 1 (um) até 3 (três) meses.
+
+
+9. Qual policial que, na ausência dos membros do Comando de Segurança Institucional (CSI), tem
+direito ao acionamento do Plano de Controle Emergencial (PCE)?
+R: Na ausência dos membros do CSI, somente o Oficial da Guarda - portador de direitos - poderá protocolar o acionamento do plano, além de comunicar o mais rápido possível a um membro do comando.
+
+
+10. Qual meio deverá ser utilizado para a comprovação de um ataque de mute e kick de acordo com o
+Plano de Controle Emergencial?
+R: Para comprovar o ataque de mute, deve-se fornecer um print em tela cheia, preferencialmente com o histórico visível, mostrando o aviso de mute após enviar uma mensagem no batalhão. Para o ataque de kick, a comprovação deve ser um print em tela cheia mostrando a mensagem de expulsão do quarto.
+
+
+[AV5]
+
+
+1. Além das medalhas efetivas negativas, qual a punição para Oficiais do Corpo Militar e Corpo
+Executivo, portadores da Especialização Intermediária que não baterem a meta em suas respectivas
+companhias?
+R: Além das medalhas negativas, eles receberão uma advertência escrita por Abandono de dever/Negligência.
+
+
+2. O limite diário de gratificações diárias que um militar pode receber é 20, porém existe exceções,
+quais são essas exceções?
+R: Projetos aprovados; Gratificações referentes à companhias ou subcompanhias; Missões registradas;
+Ranking do Setor de Relações Públicas e Corregedoria.
+
+
+3. Durante o turno da tarde, o Capitão Myke realiza um processo seletivo para adentrar na Auditoria
+Fiscal, posteriormente sendo aprovado. Diante disso, quanto tempo ele possuí para atualizar suas
+tarefas/turnos e qual a punição se não fizer? E se eles estiver em licença, quando deverá postar?
+R: Durante o turno da tarde, o Capitão Myke realiza um processo seletivo para adentrar na Auditoria Fiscal, posteriormente sendo aprovado. Diante disso, quanto tempo ele possuí para atualizar suas tarefas/turnos e qual a punição se não fizer? E se eles estiver em licença, quando deverá postar?
+Ele possuí 48 horas a partir do momento em que adentrar na subcompanhia. Caso ele não poste o requerimento atualizando suas tarefas/turnos em até 48 horas, ele será punido com uma advertência escrita. Em casos em que o militar esteja de licença, ele poderá postar 48 horas após a postagem do seu retorno.
+
+
+4. Quais postagens estão estritamente proibidas para militares que estejam gozando de uma licença?
+R: Promoções; Punições administrativas; Transferências de conta; Gratificações temporárias; Cancelamentos; Permissões.
+
+
+5. O Subtenente Amarelo que estava em um processo investigativo mentiu durante a apuração de fatos.
+Qual crime configura esta infração?
+R: Obstrução à Justiça.
+
+
+6. O tenente Laranja sofreu pela terceira vez a punição de -50 medalhas efetivas negativas por
+gratificar antes do tempo mínimo. As punições ocorreram na mesma semana, o que deve ocorrer após o
+registro da terceira punição?
+R: Ele deverá receber uma advertência escrita por reincidência de medalhas efetivas negativas pelo crime de Abandono de dever/Negligência
+
+
+7. A troca de gênero é um crime se feita sem a condição específica. Em qual condição pode ser
+aceita? Pela falta desta condição, qual o crime define a infração?
+R: Somente é permitida por autorização do Alto Comando Supremo, a alteração sem esta condição configura o crime de Conduta Imprópria.
+
+
+8. O capitão Verde realizou uma avaliação documental rotineira com o tenente Azul, porém o proibiu
+de realizar quaisquer tipos de consultas documentais. A atitude está incorreta? Se sim, cite o crime
+cometido pelo Capitão.
+R: Não está correta, ele cometeu o crime de abuso de poder ao utilizar da superioridade hierárquica para proibir a consulta.
+
+
+9. Cite a definição de: Acidente e Emergência.
+R: Acidente: Situação sem intenção ou objetivo de prejudicar a segurança da instituição, podendo ou não causar danos e/ou impactos;
+Emergência: Situação que representa risco à segurança da instituição ou que objetiva causar transtornos e requer uma intervenção rápida.
+
+
+10. Quais são os meios de acessos aos batalhões da Polícia Militar Revolução Contra o Crime?
+R: Navegador do Habbo Hotel, Hall de Entrada, Teletransporte do Corredor Principal e Teletransporte do Corredor dos Instrutores.

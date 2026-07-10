@@ -4,6 +4,7 @@ import Card from '../ui/Card';
 import Input from '../ui/Input';
 import Button from '../ui/Button';
 import { LS_KEYS } from '../../constants';
+import { getStoredValue } from '../../services/storageService';
 
 interface StartScreenProps {
     onNext: (nickname: string) => void;
@@ -14,7 +15,7 @@ const StartScreen: React.FC<StartScreenProps> = ({ onNext }) => {
     const inputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
-        const savedNick = localStorage.getItem(LS_KEYS.NICK) || '';
+        const savedNick = getStoredValue(LS_KEYS.NICK);
         setNickname(savedNick);
         inputRef.current?.focus();
     }, []);

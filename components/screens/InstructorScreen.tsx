@@ -4,6 +4,7 @@ import Card from '../ui/Card';
 import Input from '../ui/Input';
 import Button from '../ui/Button';
 import { LS_KEYS } from '../../constants';
+import { getStoredValue } from '../../services/storageService';
 
 interface AplicadorScreenProps {
     onStart: (aplicadorName: string) => void;
@@ -14,7 +15,7 @@ const AplicadorScreen: React.FC<AplicadorScreenProps> = ({ onStart }) => {
     const inputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
-        const savedAplicador = localStorage.getItem(LS_KEYS.APLICADOR) || '';
+        const savedAplicador = getStoredValue(LS_KEYS.APLICADOR);
         setAplicadorName(savedAplicador);
         inputRef.current?.focus();
     }, []);

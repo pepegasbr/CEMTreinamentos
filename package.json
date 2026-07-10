@@ -5,6 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "sync:trainings": "node scripts/sync-trainings.mjs",
+    "check:trainings": "node scripts/sync-trainings.mjs --check",
+    "prebuild": "node scripts/sync-trainings.mjs --best-effort",
     "build": "vite build",
     "preview": "vite preview"
   },

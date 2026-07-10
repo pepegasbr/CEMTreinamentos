@@ -1,6 +1,7 @@
 import {
     DOC_FETCH_TIMEOUT_MS,
     DOC_IDS,
+    DOC_SNAPSHOT_PATHS,
     DOCS_CACHE_TTL_MS,
     DOCS_CACHE_VERSION,
     DOCS_URL_PREFIX,
@@ -19,12 +20,9 @@ interface CachedQuizPayload {
     data: QuizData;
 }
 
-interface FetchSource {
-    name: string;
-    buildUrl: (targetUrl: string) => string;
-}
+type MemoryCacheEntry = CachedQuizPayload;
 
-const memoryCache = new Map<DocKey, QuizData>();
+const memoryCache = new Map<DocKey, MemoryCacheEntry>();
 const pendingLoads = new Map<DocKey, Promise<QuizData>>();
 
 const DOC_NAME_MAP: Record<DocKey, string> = {
@@ -35,21 +33,6 @@ const DOC_NAME_MAP: Record<DocKey, string> = {
     FARDAS: 'Treinamento de Fardas',
 };
 
-const DOC_FETCH_SOURCES: FetchSource[] = [
-    {
-        name: 'CodeTabs',
-        buildUrl: (targetUrl) => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(targetUrl)}`,
-    },
-    {
-        name: 'AllOrigins',
-        buildUrl: (targetUrl) => `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`,
-    },
-    {
-        name: 'CORSProxy',
-        buildUrl: (targetUrl) => `https://corsproxy.io/?${encodeURIComponent(targetUrl)}`,
-    },
-];
-
 // --- Parsers ---
 
 function parseVFQuestions(text: string): VFQuestion[] {
@@ -57,7 +40,7 @@ function parseVFQuestions(text: string): VFQuestion[] {
     const questionRegex = /\d{1,3}\.\s[\s\S]*?(?=\n+\d{1,3}\.\s|$)/g;
     const blocks = cleanText.match(questionRegex);
     if (!blocks) return [];
-    
+
     return blocks.map(block => {
         if (!block || block.trim() === '') return null;
         const cleanBlock = block.trim();
@@ -81,37 +64,50 @@ function parseVFQuestions(text: string): VFQuestion[] {
         }
 
         return { question: questionText, answer: correctAnswer, justification };
-    }).filter((q): q is VFQuestion => q !== null);
+    }).filter((question): question is VFQuestion => question !== null);
 }
 
-function parseOpenAnswerDoc(text: string, targetObject?: Record<string, OpenAnswerQuestion[]>, sectionRegex?: RegExp): OpenAnswerQuestion[] {
+function parseOpenAnswerDoc(
+    text: string,
+    targetObject?: Record<string, OpenAnswerQuestion[]>,
+    sectionRegex?: RegExp,
+): OpenAnswerQuestion[] {
     const cleanText = text.trim().replace(/\r\n/g, '\n').replace(/\r/g, '\n');
 
     if (!sectionRegex) {
         const questionRegex = /\d{1,3}\.\s[\s\S]*?(?=\n+\d{1,3}\.\s|$)/g;
         const blocks = cleanText.match(questionRegex);
         if (!blocks) return [];
+
         return blocks.map(block => {
             if (!block || block.trim() === '') return null;
             const cleanBlock = block.trim();
             const answerMarker = 'R:';
             const answerIndex = cleanBlock.toUpperCase().indexOf(answerMarker);
-            const questionText = (answerIndex !== -1 ? cleanBlock.substring(0, answerIndex) : cleanBlock).replace(/^\d{1,3}\.\s*/, '').trim();
-            const answerText = (answerIndex !== -1 ? cleanBlock.substring(answerIndex + answerMarker.length) : 'Sem resposta no gabarito.').trim();
+            const questionText = (answerIndex !== -1 ? cleanBlock.substring(0, answerIndex) : cleanBlock)
+                .replace(/^\d{1,3}\.\s*/, '')
+                .trim();
+            const answerText = (
+                answerIndex !== -1
+                    ? cleanBlock.substring(answerIndex + answerMarker.length)
+                    : 'Sem resposta no gabarito.'
+            ).trim();
+
             return { question: questionText, answer: answerText };
-        }).filter((q): q is OpenAnswerQuestion => q !== null);
+        }).filter((question): question is OpenAnswerQuestion => question !== null);
     }
 
     if (targetObject) {
         const sections = cleanText.split(sectionRegex).slice(1);
-        for (let i = 0; i < sections.length; i += 2) {
-            const sectionName = sections[i];
-            const content = sections[i + 1] ? sections[i + 1].trim() : '';
+        for (let index = 0; index < sections.length; index += 2) {
+            const sectionName = sections[index];
+            const content = sections[index + 1]?.trim() ?? '';
             if (content) {
                 targetObject[sectionName] = parseOpenAnswerDoc(content);
             }
         }
     }
+
     return [];
 }
 
@@ -130,10 +126,63 @@ function parseQuizData(key: DocKey, text: string): QuizData {
             return avdocData;
         }
         case 'PULSO_FIRME':
-            return parseOpenAnswerDoc(text);
         case 'FARDAS':
             return parseOpenAnswerDoc(text);
     }
+}
+
+function isOpenAnswerArray(value: unknown): value is OpenAnswerQuestion[] {
+    return Array.isArray(value)
+        && value.length > 0
+        && value.every(question => (
+            question
+            && typeof question === 'object'
+            && typeof question.question === 'string'
+            && question.question.trim().length > 0
+            && typeof question.answer === 'string'
+            && question.answer.trim().length > 0
+        ));
+}
+
+function isValidQuizData(key: DocKey, data: unknown): data is QuizData {
+    if (key === 'VF') {
+        return Array.isArray(data)
+            && data.length > 0
+            && data.every(question => (
+                question
+                && typeof question === 'object'
+                && typeof question.question === 'string'
+                && question.question.trim().length > 0
+                && (question.answer === 'Verdadeiro' || question.answer === 'Falso')
+                && typeof question.justification === 'string'
+            ));
+    }
+
+    if (key === 'PULSO_FIRME' || key === 'FARDAS') {
+        return isOpenAnswerArray(data);
+    }
+
+    if (!data || typeof data !== 'object' || Array.isArray(data)) {
+        return false;
+    }
+
+    const sections = data as Record<string, unknown>;
+    if (key === 'AVDOC_RES') {
+        return isOpenAnswerArray(sections.AVDOC) && isOpenAnswerArray(sections.RES);
+    }
+
+    const entries = Object.entries(sections);
+    return entries.length > 0
+        && entries.every(([sectionName, questions]) => /^AV\d+$/.test(sectionName) && isOpenAnswerArray(questions));
+}
+
+function parseAndValidateQuizData(key: DocKey, text: string, sourceName: string): QuizData {
+    const parsedData = parseQuizData(key, text);
+    if (!isValidQuizData(key, parsedData)) {
+        throw new Error(`${sourceName} não contém perguntas válidas para ${DOC_NAME_MAP[key]}.`);
+    }
+
+    return parsedData;
 }
 
 // --- Cache helpers ---
@@ -154,7 +203,7 @@ function readPersistentCache(key: DocKey, allowStale = false): QuizData | null {
             !payload
             || payload.version !== DOCS_CACHE_VERSION
             || typeof payload.savedAt !== 'number'
-            || payload.data == null
+            || !isValidQuizData(key, payload.data)
         ) {
             window.localStorage.removeItem(getStorageKey(key));
             return null;
@@ -165,7 +214,7 @@ function readPersistentCache(key: DocKey, allowStale = false): QuizData | null {
             return null;
         }
 
-        memoryCache.set(key, payload.data);
+        memoryCache.set(key, payload);
         return payload.data;
     } catch (error) {
         console.warn(`Falha ao ler cache local de ${key}.`, error);
@@ -173,14 +222,8 @@ function readPersistentCache(key: DocKey, allowStale = false): QuizData | null {
     }
 }
 
-function savePersistentCache(key: DocKey, data: QuizData): void {
+function savePersistentCache(key: DocKey, payload: CachedQuizPayload): void {
     if (typeof window === 'undefined') return;
-
-    const payload: CachedQuizPayload = {
-        version: DOCS_CACHE_VERSION,
-        savedAt: Date.now(),
-        data,
-    };
 
     try {
         window.localStorage.setItem(getStorageKey(key), JSON.stringify(payload));
@@ -189,20 +232,34 @@ function savePersistentCache(key: DocKey, data: QuizData): void {
     }
 }
 
+function cacheQuizData(key: DocKey, data: QuizData): QuizData {
+    const payload: CachedQuizPayload = {
+        version: DOCS_CACHE_VERSION,
+        savedAt: Date.now(),
+        data,
+    };
+
+    memoryCache.set(key, payload);
+    savePersistentCache(key, payload);
+    return data;
+}
+
 export function getCachedQuizData(key: DocKey): QuizData | null {
     const memoryValue = memoryCache.get(key);
-    if (memoryValue) {
-        return memoryValue;
+    if (
+        memoryValue
+        && memoryValue.version === DOCS_CACHE_VERSION
+        && Date.now() - memoryValue.savedAt < DOCS_CACHE_TTL_MS
+        && isValidQuizData(key, memoryValue.data)
+    ) {
+        return memoryValue.data;
     }
 
+    memoryCache.delete(key);
     return readPersistentCache(key);
 }
 
 // --- Network helpers ---
-
-function wait(ms: number): Promise<void> {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 function validateDocContent(content: string, docName: string, sourceName: string): string {
     const trimmed = content.trim();
@@ -222,80 +279,75 @@ function validateDocContent(content: string, docName: string, sourceName: string
     return trimmed;
 }
 
-async function fetchTextFromSource(targetUrl: string, source: FetchSource, docName: string, signal: AbortSignal): Promise<string> {
-    const response = await fetch(source.buildUrl(targetUrl), {
-        signal,
-        cache: 'default',
-    });
+async function fetchText(
+    url: string,
+    docName: string,
+    sourceName: string,
+    cacheMode: RequestCache,
+): Promise<string> {
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), DOC_FETCH_TIMEOUT_MS);
 
-    if (!response.ok) {
-        throw new Error(`${source.name} respondeu ${response.status} para ${docName}.`);
-    }
+    try {
+        const response = await fetch(url, {
+            signal: controller.signal,
+            cache: cacheMode,
+            redirect: 'follow',
+            headers: { Accept: 'text/plain' },
+        });
 
-    const content = await response.text();
-    return validateDocContent(content, docName, source.name);
-}
-
-async function fetchDocContent(docId: string, setLoadingStatus: (status: string) => void, docName: string): Promise<string> {
-    const targetUrl = `${DOCS_URL_PREFIX}${docId}${DOCS_URL_SUFFIX}`;
-    const maxAttempts = 2;
-
-    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
-        const controllers = DOC_FETCH_SOURCES.map(() => new AbortController());
-        const timers = controllers.map(controller => setTimeout(() => controller.abort(), DOC_FETCH_TIMEOUT_MS));
-
-        try {
-            setLoadingStatus(
-                attempt === 1
-                    ? `Buscando ${docName} por rotas alternativas...`
-                    : `Nova tentativa para ${docName}...`
-            );
-
-            const content = await Promise.any(
-                DOC_FETCH_SOURCES.map((source, index) =>
-                    fetchTextFromSource(targetUrl, source, docName, controllers[index].signal)
-                )
-            );
-
-            return content;
-        } catch (error) {
-            console.error(`Falha ao buscar ${docName} na tentativa ${attempt}.`, error);
-
-            if (attempt >= maxAttempts) {
-                throw new Error(`Falha ao carregar ${docName} pelas rotas disponíveis.`);
-            }
-
-            setLoadingStatus(`Ainda não foi possível carregar ${docName}. Tentando novamente...`);
-            await wait(900);
-        } finally {
-            timers.forEach(timer => clearTimeout(timer));
-            controllers.forEach(controller => controller.abort());
+        if (!response.ok) {
+            throw new Error(`${sourceName} respondeu ${response.status} para ${docName}.`);
         }
-    }
 
-    throw new Error(`Falha ao carregar ${docName}.`);
+        return validateDocContent(await response.text(), docName, sourceName);
+    } catch (error) {
+        if (controller.signal.aborted) {
+            throw new Error(`${sourceName} demorou demais para carregar ${docName}.`, { cause: error });
+        }
+        throw error;
+    } finally {
+        window.clearTimeout(timeout);
+    }
 }
 
-async function loadAndCacheQuizData(key: DocKey, setLoadingStatus: (status: string) => void): Promise<QuizData> {
+function getSnapshotUrl(key: DocKey): string {
+    const baseUrl = import.meta.env.BASE_URL.endsWith('/')
+        ? import.meta.env.BASE_URL
+        : `${import.meta.env.BASE_URL}/`;
+    const version = encodeURIComponent(DOCS_CACHE_VERSION);
+    return `${baseUrl}${DOC_SNAPSHOT_PATHS[key]}?v=${version}`;
+}
+
+async function loadRemoteQuizData(
+    key: DocKey,
+    setLoadingStatus: (status: string) => void,
+): Promise<QuizData> {
     const docName = DOC_NAME_MAP[key];
-    const docId = DOC_IDS[key];
+    const targetUrl = `${DOCS_URL_PREFIX}${DOC_IDS[key]}${DOCS_URL_SUFFIX}`;
 
     setLoadingStatus(`Carregando ${docName}...`);
-    const text = await fetchDocContent(docId, setLoadingStatus, docName);
+    const text = await fetchText(targetUrl, docName, 'Google Docs', 'no-store');
     setLoadingStatus('Processando dados...');
+    return cacheQuizData(key, parseAndValidateQuizData(key, text, 'Google Docs'));
+}
 
-    const parsedData = parseQuizData(key, text);
-    memoryCache.set(key, parsedData);
-    savePersistentCache(key, parsedData);
+async function loadBundledQuizData(
+    key: DocKey,
+    setLoadingStatus: (status: string) => void,
+): Promise<QuizData> {
+    const docName = DOC_NAME_MAP[key];
 
-    return parsedData;
+    setLoadingStatus('Abrindo a cópia de segurança do treinamento...');
+    const text = await fetchText(getSnapshotUrl(key), docName, 'Cópia de segurança', 'force-cache');
+    return cacheQuizData(key, parseAndValidateQuizData(key, text, 'Cópia de segurança'));
 }
 
 // --- API Calls ---
 
 export async function loadQuizData(
     key: DocKey,
-    setLoadingStatus: (status: string) => void
+    setLoadingStatus: (status: string) => void,
 ): Promise<QuizData> {
     const cachedData = getCachedQuizData(key);
     if (cachedData) {
@@ -309,35 +361,36 @@ export async function loadQuizData(
         return pendingLoad;
     }
 
-    const request = loadAndCacheQuizData(key, setLoadingStatus)
-        .catch(error => {
-            const staleCache = readPersistentCache(key, true);
-            if (staleCache) {
-                console.warn(`Usando cache antigo de ${key} após falha de rede.`, error);
-                setLoadingStatus('Sem rede estável. Abrindo a última cópia salva...');
-                return staleCache;
-            }
+    const request = (async () => {
+        let remoteError: unknown;
 
-            throw error;
-        })
-        .finally(() => {
-            pendingLoads.delete(key);
-        });
+        try {
+            return await loadRemoteQuizData(key, setLoadingStatus);
+        } catch (error) {
+            remoteError = error;
+            console.warn(`Falha ao atualizar ${key} pelo Google Docs.`, error);
+        }
+
+        const staleCache = readPersistentCache(key, true);
+        if (staleCache) {
+            setLoadingStatus('Sem acesso ao documento. Abrindo a última cópia válida...');
+            return staleCache;
+        }
+
+        try {
+            return await loadBundledQuizData(key, setLoadingStatus);
+        } catch (snapshotError) {
+            console.error(`Falha também na cópia de segurança de ${key}.`, snapshotError);
+            throw new Error(`Não foi possível carregar ${DOC_NAME_MAP[key]}.`, {
+                cause: new AggregateError([remoteError, snapshotError]),
+            });
+        }
+    })().finally(() => {
+        pendingLoads.delete(key);
+    });
 
     pendingLoads.set(key, request);
     return request;
-}
-
-export async function prefetchQuizData(key: DocKey): Promise<void> {
-    if (getCachedQuizData(key) || pendingLoads.has(key)) {
-        return;
-    }
-
-    try {
-        await loadQuizData(key, () => {});
-    } catch (error) {
-        console.warn(`Pré-carregamento de ${key} falhou.`, error);
-    }
 }
 
 export async function sendDataToSpreadsheet(data: {
@@ -348,8 +401,8 @@ export async function sendDataToSpreadsheet(data: {
     answers: Answer[];
 }): Promise<void> {
     if (!SCRIPT_URL) {
-        console.error("SCRIPT_URL is not set. Cannot send data.");
-        throw new Error("A aplicação não está configurada para salvar os resultados.");
+        console.error('SCRIPT_URL is not set. Cannot send data.');
+        throw new Error('A aplicação não está configurada para salvar os resultados.');
     }
 
     await fetch(SCRIPT_URL, {
@@ -357,7 +410,7 @@ export async function sendDataToSpreadsheet(data: {
         mode: 'no-cors',
         cache: 'no-cache',
         body: JSON.stringify(data),
-        redirect: 'follow'
+        redirect: 'follow',
     });
 }
 

@@ -1,0 +1,141 @@
+1. A licença de serviço tem um período máximo de 31 dias.
+R: Falso. A licença de serviço tem um período máximo de 30 dias.
+
+
+2. O promotor tem 24 horas para realizar o diálogo pós-promoção.
+R: Verdadeiro.
+
+
+3. Tenentes podem aplicar missões sem permissão.
+R: Falso. Precisa ter a permissão de um General+/Superintendente+ (com Especialização Intermediária ou superior).
+
+
+4. Um policial tem até 24 horas para cancelar um requerimento de promoção.
+R: Verdadeiro.
+
+
+5. As instâncias da RCC são a Hierarquia, Corregedoria e Alto Comando Supremo.
+R: Verdadeiro.
+
+
+6. O Gabinete de Segurança da Supremacia, Grupamento de Ações Táticas Especiais e Repartição de Ações Interventivas e
+Ostensivas fazem parte do Setor de Inteligência.
+R: Falso. Apenas o Gabinete de Segurança da Supremacia e o Grupamento de Ações Táticas Especiais fazem parte do Setor de Inteligência.
+
+
+7. A atualização de tarefa(s) e turno(s) está disponível apenas aos Aspirantes a Oficial/Equivalência
+acima que tenham concluído o Curso de Formação de Oficiais (CFO).
+R: Falso. Não é necessário o CFO para que estes possam realizar o processo.
+
+
+8. O máximo de medalhas temporárias que um policial pode receber por dia é 20 e o máximo
+mensal é 600, podendo estes limites serem ultrapassados em ocasiões específicas.
+R: Verdadeiro.
+
+
+9. Caso ocorra uma gravidade envolvendo o uso de direitos, a prioridade de acionamento pelo
+PCE é o registro do comando :chooser.
+R: Verdadeiro.
+
+
+10. A soma de penas que equivale a 12 meses de exoneração temporária, será convertida em exoneração
+por tempo indeterminado.
+R: Verdadeiro.
+
+
+11. Para um policial poder entrar em uma subcompanhia é obrigatório que o policial esteja
+inserido em uma companhia.
+R: Falso. Não é obrigatório.
+
+
+12. O Acionista Majoritário por mérito que ficar 72 horas offline sem licença é rebaixado ao cargo
+de Presidente por Insuficiência para a patente/cargo.
+R: Falso. Apenas chanceleres por mérito podem ser punidos com rebaixamento por ficar 72 horas offline sem licença.
+
+
+13. Integrantes da Corregedoria e Setor de Inteligência não possuem obrigação de apresentar provas
+em requerimentos de rebaixamento.
+R: Verdadeiro.
+
+
+14. Oficiais reformados e veteranos que se aposentaram na patente de marechal ou cargo de VIP podem
+voltar reintegrados como Aspirante a Oficial/Analista.
+R: Falso. É um direito apenas para oficiais reformados e veteranos que se aposentaram na patente de Comandante ou cargo de Presidente.
+
+
+15. O militar que for submetido à exoneração temporária poderá reduzir o período de sua punição,
+caso tenha 01 projeto aprovado pela Corregedoria, Setor de Inteligência ou pelo Alto Comando
+Supremo após a sua exoneração ser efetivada.
+R: Verdadeiro.
+
+
+16. Um policial tem 1 hora para postar o relatório de abertura/fechamento de um batalhão no tópico
+"[CSI] Registro de Abertura/Fechamento".
+R: Falso. Policiais tem 30 minutos para postar o relatório de abertura/fechamento do batalhão após o ato.
+
+
+17. O batalhão, com uma atividade acontecendo, não pode ficar com menos de 60 pessoas dentro dele.
+R: Verdadeiro.
+
+
+18. O tempo limite que um Cabo da Guarda pode deixar os recepcionistas apresentando-armas é
+dois minutos.
+R: Falso. O tempo limite é um minuto.
+
+
+19. Existem 12 vagas na Corregedoria.
+R: Falso. Existem 11 vagas na Corregedoria.
+
+
+20. A interposição de recursos contra decisões e/ou punições pode ser feita no prazo de até 07 dias
+a contar da publicação da decisão ou homologação da punitiva.
+R: Verdadeiro.
+
+
+21. Um oficial pode proibir que um subalterno consulte os documentos em uma avaliação não oficial.
+R: Falso. Um oficial não pode proibir, caso o contrário, será punido por Abuso de Poder.
+
+
+22. As únicas subcompanhias que cabos com cursos completos podem participar são Departamento de
+Comunicação e Ordem Militar.
+R: Falso. Cabos podem participar também dos Organizadores de Ronda.
+
+
+23. Para assumir a função de Oficial da Guarda no Batalhão Principal é necessário ser no mínimo
+Sargento/Secretário, caso for Sargento ter aprovação no Curso de Formação de Sargentos (CFS) e caso
+for Secretário ter aprovação na Aula de Praças Avançada (APA), ou na Avaliação Periódica do Corpo
+Executivo (Av-CE) e na Aula de Segurança (SEG).
+R: Falso. Os requisitos mencionados servem apenas para ser Oficial da Guarda no Batalhão Auxiliar.
+
+
+24. A ordem direta que força ou induz seu subalterno a cometer um crime responsabiliza o autor da
+coação pelo resultado, mas não extingue a punibilidade do militar coagido pela conduta delituosa.
+R: Falso. Extingue a punibilidade do militar coagido.
+
+
+25. Existem três procedimentos: o procedimento único, básico e o intermediário.
+R: Verdadeiro.
+
+
+26. O cabo Triangulo_ mandou um requerimento da criação de sua TAG no RCCSystem. A TAG enviada
+foi [TR_] e deve ser aprovada.
+R: Falso. TAGs não podem ter caracteres especiais.
+
+
+27. Apenas integrantes do Comando de Segurança Institucional podem acionar procedimentos
+intermediários.
+R: Verdadeiro.
+
+
+28. Um Chanceler com Especialização Avançada pode promover um marechal sem necessidade de permissão.
+R: Verdadeiro.
+
+
+29. Executivos que concluírem a Avaliação Periódica do Corpo Executivo (Av-CE) estão isentos da
+necessidade de possuir 03 dias na carreira atual para receber a especialização básica.
+R: Verdadeiro.
+
+
+30. A migração de um Batalhão Auxiliar para o Principal é permitida somente por motivos de baixo ou
+alto contingente de usuários.
+R: Falso. A alternância de batalhão é permitida por baixo ou alto contingente, falta de portadores de direitos ou emergências que inutilizem o funcionamento pleno do batalhão.

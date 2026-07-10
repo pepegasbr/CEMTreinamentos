@@ -2,7 +2,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { AllQuestions, Screen, User, QuizState, VFQuestion, OpenAnswerQuestion, Question, VFAnswer, OpenAnswer, Toast, ModalState } from './types';
 import { LS_KEYS, TOTAL_FARDAS_QUESTIONS, TOTAL_VF_QUESTIONS, DOC_IDS } from './constants';
-import { getCachedQuizData, loadQuizData, prefetchQuizData, sendDataToSpreadsheet } from './services/apiService';
+import { getCachedQuizData, loadQuizData, sendDataToSpreadsheet } from './services/apiService';
+import { setStoredValue } from './services/storageService';
 
 // Import Screens
 import LoadingScreen from './components/screens/LoadingScreen';
@@ -49,27 +50,6 @@ const App: React.FC = () => {
         setScreen('start');
     }, []);
 
-    useEffect(() => {
-        if (screen !== 'trainingSelection') return;
-
-        let cancelled = false;
-        const timer = window.setTimeout(() => {
-            void (async () => {
-                const warmupOrder: TrainingQuizKey[] = ['vf', 'tdp', 'avdocRes', 'pulsoFirme', 'fardas'];
-
-                for (const quizKey of warmupOrder) {
-                    if (cancelled) return;
-                    await prefetchQuizData(QUIZ_KEY_MAP[quizKey]);
-                }
-            })();
-        }, 600);
-
-        return () => {
-            cancelled = true;
-            window.clearTimeout(timer);
-        };
-    }, [screen]);
-
     // --- Helper Functions ---
     const addToast = useCallback((message: string, type: Toast['type'] = 'info') => {
         const newToast: Toast = { id: Date.now(), message, type };
@@ -105,14 +85,14 @@ const App: React.FC = () => {
             return;
         }
         setUser({ nickname, aplicadorName: '' });
-        localStorage.setItem(LS_KEYS.NICK, nickname);
+        setStoredValue(LS_KEYS.NICK, nickname);
         setScreen('aplicador');
     };
 
     const handleAplicador = (aplicadorName: string) => {
         if (user) {
             setUser({ ...user, aplicadorName });
-            localStorage.setItem(LS_KEYS.APLICADOR, aplicadorName);
+            setStoredValue(LS_KEYS.APLICADOR, aplicadorName);
             setScreen('trainingSelection');
         }
     };
@@ -145,31 +125,27 @@ const App: React.FC = () => {
             }
         };
 
-        if (allQuestions[quizKey]) {
-            proceedToQuiz(allQuestions);
-        } else {
-            const cachedData = getCachedQuizData(QUIZ_KEY_MAP[quizKey]);
-            if (cachedData) {
-                const newQuestionsState = {
-                    ...allQuestions,
-                    [quizKey]: cachedData,
-                } as Partial<AllQuestions>;
-                setAllQuestions(newQuestionsState);
-                proceedToQuiz(newQuestionsState);
-                return;
-            }
+        const cachedData = getCachedQuizData(QUIZ_KEY_MAP[quizKey]);
+        if (cachedData) {
+            const newQuestionsState = {
+                ...allQuestions,
+                [quizKey]: cachedData,
+            } as Partial<AllQuestions>;
+            setAllQuestions(newQuestionsState);
+            proceedToQuiz(newQuestionsState);
+            return;
+        }
 
-            setScreen('loading');
-            try {
-                const data = await loadQuizData(QUIZ_KEY_MAP[quizKey], setLoadingStatus);
-                const newQuestionsState = { ...allQuestions, [quizKey]: data };
-                setAllQuestions(newQuestionsState);
-                proceedToQuiz(newQuestionsState);
-            } catch (error) {
-                console.error("Failed to load quiz data:", error);
-                showAlert(`Falha ao carregar o treinamento. Tente novamente mais tarde.`);
-                setScreen('trainingSelection');
-            }
+        setScreen('loading');
+        try {
+            const data = await loadQuizData(QUIZ_KEY_MAP[quizKey], setLoadingStatus);
+            const newQuestionsState = { ...allQuestions, [quizKey]: data };
+            setAllQuestions(newQuestionsState);
+            proceedToQuiz(newQuestionsState);
+        } catch (error) {
+            console.error("Failed to load quiz data:", error);
+            showAlert(`Falha ao carregar o treinamento. Tente novamente mais tarde.`);
+            setScreen('trainingSelection');
         }
     };
 

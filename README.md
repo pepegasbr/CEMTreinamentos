@@ -1,20 +1,51 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Central de Treinamentos CEM
 
-# Run and deploy your AI Studio app
+## Como editar os treinamentos
 
-This contains everything you need to run your app locally.
+Os Google Docs continuam sendo a fonte principal. Basta editar o documento correspondente; o site busca a versão nova automaticamente e mantém o conteúdo em cache por no máximo 10 minutos.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1CySaATJTYrDznYvEkGNlOo0DtVb8Nzmc
+- [Verdadeiro ou Falso](https://docs.google.com/document/d/13mufkEtYY8eDHxu_szmMKM_TmAbEV4pr29GStEn80qk/edit)
+- [Treinamento Documental](https://docs.google.com/document/d/1h0MtzZj31NagmyZLIJGftwpOBYOHGh4AUUKSjDbEnC4/edit)
+- [Avaliação / Resolução](https://docs.google.com/document/d/14UkNVic1wHGQ5gKNwjKG4Tgbzb3eHYKdMGDWO1N6OMM/edit)
+- [Pulso Firme & Rigidez](https://docs.google.com/document/d/1cRty-m9_PqGlYCX1XaQhNoOXluwF746o1z57FhrHjPQ/edit)
+- [Treinamento de Fardas](https://docs.google.com/document/d/17rV3wx5qpl5AmB6rFeqXkPQdNxopnoZXlzI8dDjTC4U/edit)
 
-## Run Locally
+Mantenha as perguntas neste formato:
 
-**Prerequisites:**  Node.js
+```text
+1. Texto da pergunta
+R: Texto da resposta
+```
 
+No documento de Verdadeiro ou Falso, a resposta deve começar com `Verdadeiro` ou `Falso`. No TDP, mantenha os títulos `[AV1]`, `[AV2]` etc. Em Avaliação / Resolução, mantenha `[AVDOC]` e `[RES]`.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+O carregamento possui três níveis automáticos:
+
+1. versão atual do Google Docs;
+2. última versão válida salva no dispositivo;
+3. cópia de segurança servida junto com o próprio site.
+
+As cópias de segurança são atualizadas automaticamente durante o build. Para atualizá-las manualmente:
+
+```bash
+npm run sync:trainings
+```
+
+Para apenas conferir se todos os documentos continuam acessíveis e no formato correto:
+
+```bash
+npm run check:trainings
+```
+
+## Desenvolvimento
+
+```bash
+npm install
+npm run dev
+```
+
+Build de produção:
+
+```bash
+npm run build
+```
